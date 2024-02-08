@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Other links and scripts can be included here -->
+    <link rel="stylesheet" href="rating_test.css"> <!-- Link to your CSS file -->
+    <title>Your Page Title</title>
+</head>
+<body>
+
+<label class="rating-label"><strong>“Half stars” using <code>step="0.5"</code></strong>
+    <input
+      class="rating"
+      max="5"
+      oninput="this.style.setProperty('--value', `${this.valueAsNumber}`)"
+      step="0.5"
+      style="--value:2.5"
+      type="range"
+      value="2.5">
+  </label>
+  
+  <label class="rating-label"><strong>Hearts using <code>step="0.25"</code></strong>
+    <input
+      class="rating"
+      max="5"
+      oninput="this.style.setProperty('--value', `${this.valueAsNumber}`)"
+      step="0.25"
+      style="--fill: #C8102E;--symbol:var(--heart);--value:2.75"
+      type="range"
+      value="2.75">
+  </label>
+  
+  <label class="rating-label"><strong>Set <code>max</code> and <code>--stars</code> to “6”</strong>
+    <input
+      class="rating"
+      max="6"
+      oninput="this.style.setProperty('--value', `${this.valueAsNumber}`)"
+      step="1"
+      style="--stars:6;--value:2"
+      type="range"
+      value="2">
+  </label>
+  
+  <label class="rating-label" dir="rtl"><strong>Set <code>dir</code> to <code>rtl</code></strong>
+    <input
+      class="rating"
+      max="5"
+      oninput="this.style.setProperty('--value', this.value)"
+      step="0.5"
+      style="--value:2"
+      type="range"
+      value="2">
+  </label>
+  
+  <label class="rating-label"><strong>No JS, using <code>box-shadow</code></strong>
+    <input
+      class="rating rating--nojs"
+      max="5"
+      step="1"
+      type="range"
+      value="3">
+  </label>
+  
+  <label class="rating-label" dir="rtl"><strong>No JS <code>rtl</code></strong>
+    <input
+      class="rating rating--nojs"
+      max="5"
+      step="1"
+      type="range"
+      value="2">
+  </label>
+  
+  <label class="rating-label"><strong>Average rating is 3.37 <code>readonly</code></strong>
+    <input
+      class="rating"
+      max="5"
+      readonly
+      step="0.01"
+      style="--fill:#777;--value:3.37"
+      type="range"
+      value="3.37">
+  </label>
+</label>
+</body>
+</html>
