@@ -151,7 +151,20 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-        console.log("Hello")
+        console.log("Hello");
+        var url = 'https://newsapi.org/v2/everything?' +
+            'q=Apple&' +
+            'from=2024-02-15&' +
+            'sortBy=popularity&' +
+            'apiKey=1ebb9915990f40fb85979ee39a7f4a11';
+
+        var req = new Request(url);
+
+        fetch(req)
+            .then(function (response) {
+                console.log(response.json());
+            })
+
     </script>
 
 </body>
