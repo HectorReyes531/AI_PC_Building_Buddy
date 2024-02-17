@@ -9,6 +9,15 @@
     ></script>
     <link rel="stylesheet" href="assets/css/login_signup.css" />
     <title>Sign in & Sign up Form</title>
+    <script>
+      function onLoadCallback(){
+        grecaptcha.render('divRecaptcha',{
+          sitekey:"6LdNkHYpAAAAAN9yuq19BuHOXprUQSijg07cvWMW",
+          callback: successCallback,
+        });
+      }
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js? onload=onLoadCallback&render=explicit" async defer></script>
   </head>
   <body>
     <div class="container">
@@ -71,20 +80,9 @@
                 <i class="fab fa-linkedin-in"></i>
               </a>
             </div>
-              <head>
-                <title>reCAPTCHA demo: Simple page</title>
-                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-              </head>
-              <body>
-                <form action="?" method="POST">
-                  <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-                  <br/>
-                  <input type="submit" value="Submit">
-                </form>
-              </body>
-          </form>
-        </div>
-      </div>
+                  <div id="divRecaptcha" class="g-recaptcha"></div>
+                </div>
+              </div>
 
       <div class="panels-container">
         <div class="panel left-panel">
