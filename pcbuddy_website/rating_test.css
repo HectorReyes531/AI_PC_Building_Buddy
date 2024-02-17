@@ -5,18 +5,6 @@ body {
     font-family: Arial, sans-serif; /* Font family */
   }
   
-  header {
-    /* Styles for the navigation bar */
-  }
-  
-  aside {
-    /* Styles for the sidebar with filters */
-  }
-  
-  section {
-    /* Styles for the main content area */
-  }
-  
   /* Card styles */
   .card {
     background-color: #2c2c2c; /* Card background */
@@ -30,16 +18,10 @@ body {
     transform: scale(1.05); /* Scale up cards on hover */
   }
   
-  footer {
-    /* Styles for the footer */
-  }
-  
   @media only screen and (max-width: 768px) {
     /* Responsive styles for smaller screens */
   }
 
-/* styles.css */
-/* idk.css */
 body {
     background-color: #1f1f1f; /* Dark background for contrast */
     color: #ffffff; /* Light text */
@@ -97,8 +79,6 @@ body {
       margin: 20px; /* Provide some space around the card on smaller screens */
     }
   }
-  
-  
 
   .rating {
     --dir: right;
