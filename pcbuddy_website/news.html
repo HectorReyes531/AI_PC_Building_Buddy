@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Trending News - 1ebb9915990f40fb85979ee39a7f4a11 (api key)</title>
+    <title>Trending News</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -118,6 +118,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-primary">Previous</button>
+                        <button class="btn btn-primary">Next</button>
+                    </div>
                 </div>
             </section>
         </article>
@@ -151,20 +155,24 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-        console.log("Hello");
-        var url = 'https://newsapi.org/v2/everything?' +
-            'q=Apple&' +
-            'from=2024-02-15&' +
-            'sortBy=popularity&' +
-            'apiKey=1ebb9915990f40fb85979ee39a7f4a11';
+        const fetchNews = async () => {
 
-        var req = new Request(url);
 
-        fetch(req)
-            .then(function (response) {
-                console.log(response.json());
-            })
+            console.log("getting news");
+            var url = 'https://newsapi.org/v2/everything?' +
+                'q=Apple&' +
+                'from=2024-02-15&' +
+                'pageSize=8&' +
+                'page=3' +
+                'sortBy=popularity&' +
+                'apiKey=1ebb9915990f40fb85979ee39a7f4a11';
 
+            var req = new Request(url);
+
+            let a = await fetch(req)
+            let response = await a.json()
+            console.log(response)
+        }
     </script>
 
 </body>
