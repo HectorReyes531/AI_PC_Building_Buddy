@@ -61,11 +61,11 @@
                                 <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Link</a>
                             </div>
                         </div>
-                
+
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button class="btn btn-primary">Previous</button>
-                        <button class="btn btn-primary">Next</button>
+                        <button class="btn btn-primary" id="previous">Previous</button>
+                        <button class="btn btn-primary" id="next">Next</button>
                     </div>
                 </div>
             </section>
@@ -102,6 +102,7 @@
     <script src="assets/js/main.js"></script>
 
     <script>
+        let currPage = 1
         const fetchNews = async (page, q) => {
 
             console.log("getting news...");
@@ -110,9 +111,9 @@
                 q +
                 '&from=2024-02-16&' +
                 'pageSize=12&' +
-                'language=en&'+
+                'language=en&' +
                 'page=' +
-                page + 
+                page +
                 '&sortBy=popularity&' +
                 'apiKey=1ebb9915990f40fb85979ee39a7f4a11';
 
@@ -120,11 +121,11 @@
 
             let a = await fetch(req)
             let response = await a.json()
-            // console.log(JSON.stringify(response))
-            // console.log(response)
+            console.log(JSON.stringify(response))
+            console.log(response)
             let str = ""
 
-            for(let item of response.articles){
+            for (let item of response.articles) {
                 str = str + `<div class="card my-3 mx-3" style="width:250px">
                         <img src="${item.urlToImage}" class="card-image-top" alt="...">
                         <div class="card-body">
@@ -137,6 +138,22 @@
             document.querySelector(".content").innerHTML = str
         }
         fetchNews(1, "technology")
+        document.getElementById("previous").addEventListener("click", (e) => {
+            e.preventDefault()
+            if (currPage > 1) {
+                q = "technology"
+                currPage = currPage - 1
+                fetchNews(currPage, q)
+            }
+
+        })
+
+        document.getElementById("next").addEventListener("click", (e) => {
+            e.preventDefault();
+            q = "technology"
+            currPage = currPage + 1;
+            fetchNews(currPage, q);
+        })
     </script>
 
 </body>
