@@ -3995,3 +3995,9 @@ input, select, textarea {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+	.card-title {
+		font-size: 15px;
+	}
+	.card-image-top {
+		height: 150px; 
+	}
