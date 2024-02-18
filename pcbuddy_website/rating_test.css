@@ -81,55 +81,62 @@ body {
   }
 
   .rating {
-    --dir: right;
-    --fill: gold;
-    --fillbg: rgba(100, 100, 100, 0.15);
+    --dir: right; /* Direction of the gradient fill*/
+    --fill: gold; /* color for the stars*/
+    --fillbg: rgba(100, 100, 100, 0.15); /*colors of the background*/
     --star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.25l-6.188 3.75 1.641-7.031-5.438-4.734 7.172-0.609 2.813-6.609 2.813 6.609 7.172 0.609-5.438 4.734 1.641 7.031z"/></svg>');
-    --stars: 5;
-    --starsize: 3rem;
-    --symbol: var(--star);
-    --value: 1;
-    --w: calc(var(--stars) * var(--starsize));
+    --stars: 5; /*number of the stars*/
+    --starsize: 3rem; /* Size of each star */
+    --symbol: var(--star); /* Symbol used for the stars, referencing the SVG */
+    --value: 1; /* Current rating value */
+    --w: calc(var(--stars) * var(--starsize)); /* Total width of the rating component */
     --x: calc(100% * (var(--value) / var(--stars)));
-    block-size: var(--starsize);
-    inline-size: var(--w);
+    block-size: var(--starsize); /* Height of the rating component */
+    inline-size: var(--w); /* Width of the rating component */
     position: relative;
-    touch-action: manipulation;
+    touch-action: manipulation;/* Optimizes touch interaction */
     -webkit-appearance: none;
   }
+  /* Adjusts the rating direction for right-to-left layouts */
   [dir="rtl"] .rating {
     --dir: left;
   }
+  /* Styles for the track of the rating input for Mozilla Firefox */
   .rating::-moz-range-track {
     background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
     block-size: 100%;
     mask: repeat left center/var(--starsize) var(--symbol);
   }
+  /* Styles for the track of the rating input for WebKit browsers */
   .rating::-webkit-slider-runnable-track {
     background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
     block-size: 100%;
     mask: repeat left center/var(--starsize) var(--symbol);
     -webkit-mask: repeat left center/var(--starsize) var(--symbol);
   }
+  /* Makes the slider thumb invisible for Firefox */
   .rating::-moz-range-thumb {
     height: var(--starsize);
     opacity: 0;
     width: var(--starsize);
   }
+  /* Makes the slider thumb invisible for WebKit browsers */
   .rating::-webkit-slider-thumb {
     height: var(--starsize);
     opacity: 0;
     width: var(--starsize);
     -webkit-appearance: none;
   }
+  /* Base styling for the rating and its label */
   .rating, .rating-label {
     display: block;
     font-family: ui-sans-serif, system-ui, sans-serif;
   }
+  /* Style for the label associated with the rating component */
   .rating-label {
     margin-block-end: 1rem;
   }
-  
+  /* Fallback styles for when JavaScript is not available */
   .rating--nojs::-moz-range-track {
     background: var(--fillbg);
   }
@@ -147,6 +154,7 @@ body {
     opacity: 1;
     width: 1px;
   }
+  /* Adjusts the thumb shadow for RTL in the no-JavaScript fallback */
   [dir="rtl"] .rating--nojs::-webkit-slider-thumb {
     box-shadow: var(--w) 0 0 var(--w) var(--fill);
   }
