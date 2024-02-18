@@ -21,6 +21,17 @@ input {
   
 }
 
+/* darkmode */
+.container.light {
+  background-image: url('/images/light-background.jpg');
+  color: black;
+}
+
+.container.dark {
+  background-image: url('/images/dark-background.jpg');
+  color: white;
+}
+
 .forms-container {
   position: absolute;
   width: 100%;
