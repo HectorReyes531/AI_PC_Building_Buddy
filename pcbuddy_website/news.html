@@ -19,7 +19,7 @@
     <!-- Page Wrapper -->
     <div id="page-wrapper">
 
-        <!-- Header -->
+        <!-- Alex: this is the menu bar that can be toggled once clicked -->
         <header id="header">
             <h1><a href="index.html">PC Building Buddy</a></h1>
             <nav id="nav">
@@ -52,7 +52,7 @@
                 <div class="container">
                     <h2>Current Trending News</h2>
                     <div class="row content">
-                        <!--Creating a Card to fit the article in-->
+                        <!--Creating a Card to fit the articles in-->
                         <div class="card my-3 mx-3" style="width:250px">
                             <img src="..." class="card-image-top" alt="...">
                             <div class="card-body">
@@ -63,6 +63,7 @@
                         </div>
 
                     </div>
+                    <!-- buttons to cycle through the article pages-->
                     <div class="d-flex justify-content-end my-1">
                         <button class="btn btn-primary" id="previous">Previous</button>
                         <button class="btn btn-primary" id="next">Next</button>
@@ -71,7 +72,7 @@
             </section>
         </article>
 
-        <!-- Footer -->
+        <!-- social media icons, no accounts just yet -->
         <footer id="footer">
             <ul class="icons">
                 <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -89,10 +90,12 @@
     </div>
 
     <!-- Scripts -->
-    <!-- Have to place ampersand before -->
+    <!-- Have to place ampersand before to fetch with all the proper parameters-->
+    <!-- bootstrap for the cards-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <!-- javascript files for the toggled menu-->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
@@ -101,10 +104,12 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
+    <!-- fetchs news from api-->
     <script>
         let currPage = 1
         const fetchNews = async (page, q) => {
-
+            // currently fetches the everything end point, while taking in a query from a certain date
+            // limits itself to 12 articles per page and english articles
             console.log("getting news...");
             var url = 'https://newsapi.org/v2/everything?' +
                 'q=' +
@@ -118,13 +123,13 @@
                 'apiKey=1ebb9915990f40fb85979ee39a7f4a11';
 
             var req = new Request(url);
-
+            // takes in response as a json
             let a = await fetch(req)
             let response = await a.json()
             console.log(JSON.stringify(response))
             console.log(response)
             let str = ""
-
+            // populate all the cards with articles
             for (let item of response.articles) {
                 str = str + `<div class="card my-3 mx-3" style="width:250px">
                         <img src="${item.urlToImage}" class="card-image-top" alt="...">
@@ -137,7 +142,9 @@
             }
             document.querySelector(".content").innerHTML = str
         }
+        // initializes first couple articles
         fetchNews(1, "technology")
+        // goes to the prev page of articles
         document.getElementById("previous").addEventListener("click", (e) => {
             e.preventDefault()
             if (currPage > 1) {
@@ -147,7 +154,7 @@
             }
 
         })
-
+        // goes to the next page of articles
         document.getElementById("next").addEventListener("click", (e) => {
             e.preventDefault();
             q = "technology"
