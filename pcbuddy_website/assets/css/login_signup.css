@@ -139,8 +139,8 @@ form.sign-in-form {
   border-radius: 50%;
   /* border: 1px solid #333; */
   border: 1px solid #fff;
-  /* color: #fff; */
-  color: #333;
+  color: #fff;
+  /* color: #333; */
   text-decoration: none;
   font-size: 1.1rem;
   transition: 0.3s;
