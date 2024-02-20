@@ -117,7 +117,7 @@ body {
   /* Makes the slider thumb invisible for Firefox */
   .rating::-moz-range-thumb {
     height: var(--starsize);
-    opacity: 0;
+    opacity: 100;
     width: var(--starsize);
   }
   /* Makes the slider thumb invisible for WebKit browsers */
