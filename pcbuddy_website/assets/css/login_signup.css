@@ -15,7 +15,8 @@ input {
   position: relative;
   width: 100%;
   /* background-color: #fff; */
-  background-image: url(/images/pic06_homescreen.png);
+  /* background-image: url(/images/pic06_homescreen.png); */
+  background-image: url(/pcbuddy_website/images/pic06_homescreen.png);
   min-height: 100vh;
   overflow: hidden;
   
