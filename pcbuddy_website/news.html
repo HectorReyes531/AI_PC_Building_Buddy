@@ -92,6 +92,11 @@
                 <p>Results within the last month</p>
             </header>
             <section class="wrapper style5">
+                <form class ="d-flex" role="search">
+                    <input id="desiredSearch" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id="search" class="btn btn-outline-success" type="submit">Search</button>
+
+                </form>
                 <div class="container">
                     <h2>Current Trending News</h2>
                     <div class="row content">
@@ -101,7 +106,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"> Card Title</h5>
                                 <p class="card-text">...</p>
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Link</a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Source</a>
                             </div>
                         </div>
 
@@ -157,7 +162,7 @@
             var url = 'https://newsapi.org/v2/everything?' +
                 'q=' +
                 q +
-                '&from=2024-02-16&' +
+                '&from=2024-03-02&' +
                 'pageSize=12&' +
                 'language=en&' +
                 'page=' +
@@ -173,13 +178,17 @@
             console.log(response)
             let str = ""
             // populate all the cards with articles
+            // currently copy url copies line above rather than copying the link of website
             for (let item of response.articles) {
                 str = str + `<div class="card my-3 mx-3" style="width:250px">
                         <img src="${item.urlToImage}" class="card-image-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"> ${item.title}</h5>
+                            <h5 class="card-title"> ${item.title.slice(0, 50)}</h5>
                             <p class="card-text">${item.description}</p>
-                            <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Link</a>
+                            <div class="d-flex flex-row justify-content-between mt-auto"> 
+                                <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="align-self-end btn btn-primary">Source</a>
+                                <input type="button" value="Copy" onclick="copyLink(${item.url});"/>
+                            </div>
                         </div>
                     </div>`
             }
@@ -187,6 +196,19 @@
         }
         // initializes first couple articles
         fetchNews(1, "technology")
+        // taking elements from the search bar
+        search.addEventListener("click", (e)=>{
+            e.preventDefault();
+            let query = desiredSearch.value;
+            fetchNews(1, query)
+        })
+
+        function copyLink(webUrl)
+        {
+            var Url = webUrl;
+            Url.innerHTML = window.location.href;
+        }
+
         // goes to the prev page of articles
         document.getElementById("previous").addEventListener("click", (e) => {
             e.preventDefault()
