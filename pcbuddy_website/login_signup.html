@@ -56,7 +56,8 @@
             </div>
 
             <!-- login button -->
-            <input type="button" value="Login" class="btn solid" />
+            <!-- <input type="button" value="Login" class="btn solid" /> -->
+            <button type="submit" class="btn solid">Login</button>
 
             <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
@@ -208,6 +209,7 @@
           username: UsernameInp.value
         })
       })
+
       .catch((error)=> {
         alert(error.message);
         console.log(error.code);
@@ -218,13 +220,14 @@
     SignUpForm.addEventListener('submit', RegisterUser);
   </script>
 
-  <!-- Login configuration -->
+  <!-- Log-in configuration -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
     import { getDatabase, get, ref, child } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
     import { getAuth, signInWithUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
+  
     const dbref = ref(db);
 
     let EmailInp_login = document.getElementById('email-inp-login')
@@ -242,7 +245,7 @@
               username: snapshot.val().UsernameInp
             }))
             sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
-            window.location.href = "index.html";
+            window.location.href = 'index.html';
           }
         })
       })
@@ -253,7 +256,7 @@
       })
     }
 
-  SignInForm.addEventListener('submit', SignInUser);
+    SignInForm.addEventListener('submit', SignInUser);
   </script>
 
 
