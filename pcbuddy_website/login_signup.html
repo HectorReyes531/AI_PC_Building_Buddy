@@ -234,7 +234,7 @@
     let SignInUser = evt => {
       evt.preventDefault();
 
-      createUserWithEmailAndPassword(auth, EmailInp.value, PasswordInp.value)
+      signInWithEmailAndPassword(auth, EmailInp_login.value, PasswordInp_login.value)
       .then((credentials)=> {
         get(child(dbref, 'UsersAuthList/' + credentials.user.uid)).then((snapshot)=> {
           if(snapshot.exists) {
@@ -242,7 +242,7 @@
               username: snapshot.val().UsernameInp
             }))
             sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
-            window.location.href = 'index.html';
+            window.location.href = "index.html";
           }
         })
       })
