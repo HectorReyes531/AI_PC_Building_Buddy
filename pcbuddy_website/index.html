@@ -28,6 +28,10 @@
 											<li><a href="news.html">News and Trends</a></li>
 											<li><a href="howtobuild.html">How-To-Build Guide</a></li>
 											<li><a href="login_signup.html">Register</a></li>
+											<button class="btn" type="button"> Sign Out</button>
+
+											<h2 id="msg"></h2>
+											<h2 id="greet"></h2>
 										</ul>
 									</div>
 								</li>
@@ -168,6 +172,38 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+				let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+
+				let MsgHead = document.getElementById('msg');
+				let GreetHead = document.getElementById('greet');
+				let SignoutBtn = document.getElementById('signoutbutton');
+
+
+				let Signout = () => {
+					sessionStorage.removeItem("user-creds");
+					sessionStorage.removeItem("user-info");
+					window.location.href = "login_signup.html";
+				}
+
+				let CheckCred = () => {
+					if (!sessionStorage.getItem("user-creds"))
+					window.location.href = 'login_signup.html'
+
+					else {
+						MsgHead.innerText = `user with email "${UserCreds.email}" logged in`;
+						GreetHead.innerText = `welcome ${UserInfo.firstname + " " + UserInfo.lastname}!`;
+					}
+				}
+
+				window.addEventListener('load', CheckCred);
+				SignoutBtn.addEventListener('click', Signout);
+
+
+
+			</script>
 
 	</body>
 </html>
