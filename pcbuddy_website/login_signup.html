@@ -9,6 +9,8 @@
     ></script>
     <link rel="stylesheet" href="assets/css/login_signup.css" />
     <title>Sign in & Sign up Form</title>
+    <!--Hamzah Qutob worked on the Google reCAPTCHA v2 here-->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
 
@@ -110,7 +112,13 @@
               <a href="#" class="social-icon">
                 <i class="fab fa-linkedin-in"></i>
               </a>
+              <!--Hamzah Qutob worked on the Google reCAPTCHA v2 here-->
             </div>
+                <form action="submitform.php" method="POST">
+                  <div class="g-recaptcha" data-sitekey="6LdNkHYpAAAAAN9yuq19BuHOXprUQSijg07cvWMW"></div>
+                  <br/>
+                  <input type="submit" value="Submit">
+                </form>
           </form>
         </div>
       </div>

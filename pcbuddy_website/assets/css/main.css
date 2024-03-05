@@ -4001,3 +4001,11 @@ input, select, textarea {
 	.card-image-top {
 		height: 150px; 
 	}
+	.card-body{
+		display: flex;
+		flex-direction: column;
+
+	}
+	button.btn{
+		margin-top: auto;
+	}
