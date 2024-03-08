@@ -1,3 +1,4 @@
 function successCallback(token){
-    debugger
+    debugger;
+    enableBtn();
 }

@@ -403,6 +403,22 @@ form.sign-in-form {
   transition: 0.5s;
 }
 
+input:disabled {
+  cursor: not-allowed;
+}
+
+.btn-disabled {
+  background-color: gray;
+  color: darkgray;
+  cursor: not-allowed;
+}
+
+.btn-enabled {
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
+
 .btn:hover {
   background-color: #4d84e2;
 }

@@ -20,6 +20,14 @@
       }
     </script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onLoadCallback&render=explicit" async defer></script>
+    <script>
+      function enableBtn(){
+        var signUpButton = document.getElementById("signUp");
+        signUpButton.disabled = false;
+        signUpButton.classList.remove('btn-disabled');
+        signUpButton.classList.add('btn-enabled')
+      }
+    </script>
   </head>
   <body>
 
@@ -105,9 +113,8 @@
               <input type="password" id="password-inp" name="password" placeholder="Password" />
             </div>
             <!-- submit button -->
-            <input type="submit" id="signUp" name="signup_submit" class="btn" value="Sign up" />
+            <input type="submit" id="signUp" name="signup_submit" class="btn btn-disabled" value="Sign up" disabled />
            
-
             <p class="social-text">Or Sign up with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon">
@@ -125,7 +132,7 @@
              
             </div>
              <!--Hamzah Qutob-->
-              <div id='divRecaptcha' class="g-recaptcha"></div>
+              <div id='divRecaptcha' class="g-recaptcha" data-sitekey='6LfTIZApAAAAAB53sBRh74qzYlb29g7lagD6-a_S' data-callback='enableBtn'></div>
       </div>
 
       <div class="panels-container">
