@@ -10,14 +10,16 @@
     <link rel="stylesheet" href="assets/css/login_signup.css" />
     <title>Sign in & Sign up Form</title>
     <!--Hamzah Qutob worked on the Google reCAPTCHA v2 here-->
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lf5oIspAAAAALTnuK2pDGKuixvAda9Tkfp0Hku-"></script>
-  <!-- Your code -->
-    <!-- Replace the variables below. -->
+    <script src="script.js"></script>
     <script>
-      function onSubmit(token) {
-        document.getElementById("signupForm").submit();
+      function onLoadCallback() {
+        grecaptcha.render('divRecaptcha', {
+          sitekey: '6LfTIZApAAAAAB53sBRh74qzYlb29g7lagD6-a_S',
+          callback: successCallback,
+        });
       }
     </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onLoadCallback&render=explicit" async defer></script>
   </head>
   <body>
 
@@ -122,13 +124,8 @@
               </a>
              
             </div>
-             <!--Hamzah Qutob worked on the Google reCAPTCHA v2 here-->
-                <form id="signupForm" action="script.js" method="POST">
-                  <button class="g-recaptcha"
-                      data-sitekey="6LfDI4opAAAAAO7g3bTvcVB-j-t5fNsdBH4hHeaa"
-                      data-callback='onClick'
-                      data-action='submit'>Submit</button>
-                </form>
+             <!--Hamzah Qutob-->
+              <div id='divRecaptcha' class="g-recaptcha"></div>
       </div>
 
       <div class="panels-container">

@@ -1,7 +1,7 @@
 {
     "event": {
       "token": "TOKEN",
-      "expectedAction": "signup",
-      "siteKey": "6LfDI4opAAAAAO7g3bTvcVB-j-t5fNsdBH4hHeaa"
+      "siteKey": "6LfTIZApAAAAAB53sBRh74qzYlb29g7lagD6-a_S",
+      "expectedAction": "SIGNUP"
     }
   }
