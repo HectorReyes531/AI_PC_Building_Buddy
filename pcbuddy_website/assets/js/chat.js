@@ -5,7 +5,8 @@ const send = document.querySelector(".bar-wrapper button");
 const API_URL = "https://api.openai.com/v1/chat/completions";
 const API_KEY = "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";
 
-send.onclick = function () {
+// send.onclick = function () {
+function sendMessage(){
     if (messageBar.value.length > 0) {
         console.log("message sent");
         let user =
@@ -63,3 +64,11 @@ send.onclick = function () {
     }
     document.getElementById("user-input").value = '';
 }
+
+send.onclick = sendMessage;
+
+messageBar.addEventListener('keypress', function(e){
+    if(e.key == 'Enter'){
+        sendMessage();
+    }
+})
