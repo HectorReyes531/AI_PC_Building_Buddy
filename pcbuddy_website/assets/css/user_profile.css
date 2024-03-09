@@ -1,5 +1,5 @@
 /* Import Font Dancing Script */
-/*@import url(https://fonts.googleapis.com/css?family=Dancing+Script); */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
 * {
@@ -7,14 +7,16 @@
 }
 
 body {
-    background-color: #85cbdd;
+    background-color: #a1a1a1;
     font-family: inherit;
     overflow: hidden;
+    background-image: url(/pcbuddy_website/images/pic02.jpg);
+    background-size: cover;
 }
 
 /* NavbarTop */
 .navbar-top {
-    background-color: #aae1f1;
+    background-color: #d1dee2;
     color: #333;
     box-shadow: 0px 4px 8px 0px grey;
     height: 70px;
@@ -61,7 +63,7 @@ body {
 /* Sidenav */
 .sidenav {
     font-family: "Poppins", sans-serif;
-    background-color: #aae1f1;
+    background-color: #d1dee2;
     color: #333;
     border-bottom-right-radius: 25px;
     height: 86%;
