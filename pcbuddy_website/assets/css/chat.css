@@ -48,3 +48,15 @@
     justify-content: center;
     background: none;
 }
+
+.message-box{
+    height: 300px;
+    overflow-y:auto;
+}
+.user-input{
+    width: 1000px;
+}
+.textbox{
+    width: 500px;
+    height: 20px;
+}

@@ -32,17 +32,7 @@ send.onclick = function () {
 
         setTimeout(() => {
             messageBox.insertAdjacentHTML("beforeend", bot);
-            // const response ={
-            //     method: POST,
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //         "Authorization": `Bearer ${API_KEY}`
-            //     },
-            //     body: JSON.stringify({
-            //         "model": "gpt-3.5-turbo",
-            //         "messages": [{"role": "user", "content": messageBar.value}]
-            //     })
-            // }
+        
             console.log(messageBar.value);
             fetch(API_URL, {
                 method: "POST",
