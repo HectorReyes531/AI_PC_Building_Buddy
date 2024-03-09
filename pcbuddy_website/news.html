@@ -93,12 +93,12 @@
             </header>
             <section class="wrapper style5">
                 <form class ="d-flex" role="search">
-                    <input id="desiredSearch" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input id="desiredSearch" class="form-control me-2 input-sm" type="search" placeholder="Search" aria-label="Search">
                     <button id="search" class="btn btn-outline-success" type="submit">Search</button>
 
                 </form>
                 <div class="container">
-                    <h2>Current Trending News (<span id="resultCount"></span> Results)</h2>
+                    <h2>Current Trending News (<span id="resultCount"></span>Results)</h2>
                     <div class="row content">
                         <!--Creating a Card to fit the articles in-->
                         <div class="card my-3 mx-3" style="width:250px">
@@ -163,7 +163,7 @@
             var url = 'https://newsapi.org/v2/everything?' +
                 'q=' +
                 q +
-                '&from=2024-03-02&' +
+                '&from=2024-03-07&' +
                 'pageSize=12&' +
                 'language=en&' +
                 'page=' +
@@ -175,17 +175,18 @@
             // takes in response as a json
             let a = await fetch(req)
             let response = await a.json()
-            // console.log(JSON.stringify(response))
-            // console.log(response)
+            console.log(JSON.stringify(response))
+            console.log(response)
             let str = ""
             // populate all the cards with articles
             // currently copy url copies line above rather than copying the link of website
+            resultCount.innerHTML = response.totalResults
             for (let item of response.articles) {
                 var copiedUrl = String(item.url);
                 str = str + `<div class="card my-3 mx-3" style="width:250px">
                         <img src="${item.urlToImage}" class="card-image-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"> ${item.title.slice(0, 50)}</h5>
+                            <h5 class="card-title"> ${item.title.slice(0, 50)}...</h5>
                             <p class="card-text">${item.description}</p>
                             <div class="d-flex flex-row justify-content-between mt-auto"> 
                                 <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="align-self-end btn btn-primary">Source</a>

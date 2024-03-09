@@ -1,0 +1,50 @@
+.chat{
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    color:white;
+    font-size: 15;
+    font-weight: 200;
+}
+.chatimg{
+    height: 50px;
+    width: 50px;
+}
+
+.chat-response{
+    background-color: #fff;
+}
+
+.message-bar{
+    bottom: 0;
+    height: 10rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid gray;
+    background-color: white;
+}
+
+.messagebar .bar-wrapper{
+    background-color: #494b59;
+    border-radius: 10px;
+    width: 60 vw;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bar-wrapper input{
+    width: 100%;
+    padding: 10px;
+    font-size: 20;
+}
+
+.message-bar button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
