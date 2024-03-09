@@ -7,7 +7,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/chat.css" />
-
+	<link rel="stylesheet" href="assets/css/loading_icon.css"/>
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<noscript>
@@ -55,6 +55,19 @@
 							However, these steps can <b>change</b> depending on the types of parts being
 							used in the computer. As a result, this guide just describes the <b>average</b>
 							experience when building a computer.
+							<div class="loaderContainer">
+								<div class="particleContainer">
+								  <div></div>
+								  <div></div>
+								  <div></div>
+								</div>
+								<div class="particleContainer">
+								  <div></div>
+								  <div></div>
+								  <div></div>
+								</div>
+							  </div>
+							  
 							<hr />
 						<h5>Blockquote</h5>
 						<blockquote>Building a computer is not just assembling parts; it's a journey of curiosity,
@@ -247,11 +260,9 @@
 							</div>
 							<div class="message-bar">
 								<div class="bar-wrapper">
-									<input type="text" placeholder="Enter question/message..." id="user-input">
+									<input type="text" placeholder="Enter question/message..." id="user-input" class="textbox">
 									<button>
-										<span class="material-symbols-outlined">
-											arrow_forward
-										</span>
+										<span class="material-symbols-outlined">arrow_forward</span>
 									</button>
 								</div>
 							</div>

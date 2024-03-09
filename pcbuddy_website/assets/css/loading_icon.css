@@ -1,67 +1,47 @@
-.lds-grid {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
+.loaderContainer {
+  display: flex;
+  width: 9em;
+  overflow: hidden;
+  gap: 0.5em;
+}
+.particleContainer {
+  display: flex;
+  gap: 0.5em;
+  animation: slide 2000ms linear infinite;
+}
+.particleContainer div {
+  width: 2.5em;
+  aspect-ratio: 1;
+  border-radius: 5px;
+  background: black;
+  transform-origin: left bottom;
+  animation: squeeze 750ms ease-in-out infinite;
+}
+.particleContainer div:nth-child(2) {
+  animation-delay: 50ms;
+}
+.particleContainer div:last-child {
+  animation-delay: 100ms;
+}
+@keyframes squeeze {
+  0% {
+    transform: scale(1) translateY(0);
   }
-  .lds-grid div {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #fff;
-    animation: lds-grid 1.2s linear infinite;
+  50% {
+    transform: scale(0.75);
   }
-  .lds-grid div:nth-child(1) {
-    top: 8px;
-    left: 8px;
-    animation-delay: 0s;
+  75% {
+    transform: scale(1.05);
   }
-  .lds-grid div:nth-child(2) {
-    top: 8px;
-    left: 32px;
-    animation-delay: -0.4s;
+  100% {
+    transform: sclae(1);
   }
-  .lds-grid div:nth-child(3) {
-    top: 8px;
-    left: 56px;
-    animation-delay: -0.8s;
+}
+@keyframes slide {
+  from {
+    transform: translateX(0%);
   }
-  .lds-grid div:nth-child(4) {
-    top: 32px;
-    left: 8px;
-    animation-delay: -0.4s;
+  to {
+    transform: translateX(calc(-50% + 1.25em));
   }
-  .lds-grid div:nth-child(5) {
-    top: 32px;
-    left: 32px;
-    animation-delay: -0.8s;
-  }
-  .lds-grid div:nth-child(6) {
-    top: 32px;
-    left: 56px;
-    animation-delay: -1.2s;
-  }
-  .lds-grid div:nth-child(7) {
-    top: 56px;
-    left: 8px;
-    animation-delay: -0.8s;
-  }
-  .lds-grid div:nth-child(8) {
-    top: 56px;
-    left: 32px;
-    animation-delay: -1.2s;
-  }
-  .lds-grid div:nth-child(9) {
-    top: 56px;
-    left: 56px;
-    animation-delay: -1.6s;
-  }
-  @keyframes lds-grid {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
+}
