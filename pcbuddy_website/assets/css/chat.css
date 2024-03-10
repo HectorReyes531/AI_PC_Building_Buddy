@@ -1,3 +1,4 @@
+/* encompasses whole chat and all the individual divs */
 .chat{
     display: flex;
     gap: 20px;
@@ -6,6 +7,7 @@
     font-size: 15;
     font-weight: 200;
 }
+/* images of both the bot and user */
 .chatimg{
     height: 50px;
     width: 50px;
@@ -19,6 +21,7 @@
     justify-content: flex-end;
 }
 
+/* the message bar itself */
 .message-bar{
     bottom: 0;
     height: 10rem;
@@ -30,6 +33,7 @@
     background-color: white;
 }
 
+/* encompasses the entire message bar */
 .message-bar .bar-wrapper{
     background-color: #fff;
     border-radius: 10px;
@@ -43,6 +47,7 @@
     margin-right: 10px;
 }
 
+/* encompasses both the text field and submit button */
 .bar-wrapper input{
     width: 100%;
     flex: auto;
@@ -50,6 +55,7 @@
     font-size: 20;
 }
 
+/* adjusting the button to submit your query */
 .message-bar button{
     display: flex;
     align-items: center;
@@ -57,10 +63,12 @@
     background: none;
 }
 
+/* the actual chat */
 .message-box{
     height: 300px;
     overflow-y:auto;
 }
+/* user's input and messages they send */
 .user-input{
     width: 1000px;
 }

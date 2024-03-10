@@ -14,6 +14,7 @@
     <noscript>
         <link rel="stylesheet" href="assets/css/noscript.css" />
     </noscript>
+    <!--Have to hard code style in the html to override the problems caused by bootstrap and main.css conflicting-->
     <style>
         #main header,
         h1 {
@@ -92,6 +93,7 @@
                 <p>Results within the last month</p>
             </header>
             <section class="wrapper style5">
+                <!--the search bar-->
                 <form class="d-flex" role="search">
                     <input id="desiredSearch" class="form-control me-2 input-sm" type="search" placeholder="Search"
                         aria-label="Search">
@@ -109,6 +111,7 @@
                                 <p class="card-text">...</p>
                                 <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Source</a>
                                 <input type="text" class="copy-link-input" value="Wakanda forever" id="toCopy">
+                                <!-- adds a copy button-->
                                 <button type="button" class="copy-link-button" onclick="copyFunc()">
                                     <span class="material-symbols-outlined">content_copy</span>
                                 </button>
@@ -234,6 +237,7 @@
             e.preventDefault();
             console.log("test")
         })
+
         // taking elements from the search bar
         search.addEventListener("click", (e) => {
             e.preventDefault();
@@ -265,9 +269,11 @@
             fetchNews(currPage, q);
         })
 
+        // copy function that is called when the copy button is clicked
         function copyFunc(inputID){
             var copyText = document.getElementById(inputID);
             copyText.select();
+            // this allows mobile users to copy to clipboard
             copyText.setSelectionRange(0,99999);
             navigator.clipboard.writeText(copyText.value);
             

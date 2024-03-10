@@ -1,3 +1,4 @@
+/* encompasses the space the search bar covers */
 .search{
     --padding: 15px;
     width: max-content;
@@ -9,7 +10,7 @@
     width: 100%;
     transition: background 0.25s;
 }
-
+/* the actual input field for the searchbar */
 .search-input{
     font-size: 20px;
     font-family:'Times New Roman', Times, serif;

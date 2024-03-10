@@ -1,14 +1,17 @@
+/* encompasses the whole icon */
 .loaderContainer {
   display: flex;
   width: 9em;
   overflow: hidden;
   gap: 0.5em;
 }
+/* holds the boxes as they transition*/
 .particleContainer {
   display: flex;
   gap: 0.5em;
   animation: slide 2000ms linear infinite;
 }
+/* represents each individual box */
 .particleContainer div {
   width: 2.5em;
   aspect-ratio: 1;
@@ -18,11 +21,12 @@
   animation: squeeze 750ms ease-in-out infinite;
 }
 .particleContainer div:nth-child(2) {
-  animation-delay: 50ms;
+  animation-delay: 25ms;
 }
 .particleContainer div:last-child {
-  animation-delay: 100ms;
+  animation-delay: 50ms;
 }
+/* boxes expanding and contracting */
 @keyframes squeeze {
   0% {
     transform: scale(1) translateY(0);
@@ -34,9 +38,10 @@
     transform: scale(1.05);
   }
   100% {
-    transform: sclae(1);
+    transform: scale(1);
   }
 }
+/* boxes sliding as time passes */
 @keyframes slide {
   from {
     transform: translateX(0%);
