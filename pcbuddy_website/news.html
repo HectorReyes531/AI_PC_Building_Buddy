@@ -180,6 +180,7 @@
             // takes in response as a json
             let a = await fetch(req)
             let response = await a.json()
+            var i = 0;
             // console.log(JSON.stringify(response))
             // console.log(response)
             let str = ""
@@ -187,8 +188,11 @@
             // currently copy url copies line above rather than copying the link of website
             resultCount.innerHTML = response.totalResults
             for (let item of response.articles) {
-                var copiedUrl = String(item.url);
-                console.log(copiedUrl);
+                let copiedUrl = String(item.url);
+                let inputID = `toCopy-${i}`;
+                // console.log(copiedUrl);
+                i += 1;
+
                 str = str + `<div class="card my-3 mx-3" style="width:250px">
                         <img src="${item.urlToImage}" class="card-image-top" alt="...">
                         <div class="card-body">
@@ -196,8 +200,8 @@
                             <p class="card-text">${item.description}</p>
                             <div class="d-flex flex-row justify-content-between mt-auto"> 
                                 <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="align-self-end btn btn-primary">Source</a>
-                                <input type="text" class="copy-link-input" value="${copiedUrl}" id="toCopy">
-                                <button type="button" class="copy-link-button" onclick="copyFunc('${copiedUrl}')">
+                                <input type="text" class="copy-link-input" value="${copiedUrl}" id=${inputID}>
+                                <button type="button" class="copy-link-button" onclick="copyFunc('${inputID}')">
                                     <span class="material-symbols-outlined">content_copy</span>
                                 </button>
                             </div>
@@ -261,8 +265,8 @@
             fetchNews(currPage, q);
         })
 
-        function copyFunc(){
-            var copyText = document.getElementById("toCopy");
+        function copyFunc(inputID){
+            var copyText = document.getElementById(inputID);
             copyText.select();
             copyText.setSelectionRange(0,99999);
             navigator.clipboard.writeText(copyText.value);
