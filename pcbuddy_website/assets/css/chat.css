@@ -15,6 +15,10 @@
     background-color: #fff;
 }
 
+.message-box .user-message{
+    justify-content: flex-end;
+}
+
 .message-bar{
     bottom: 0;
     height: 10rem;
@@ -22,22 +26,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 1px solid gray;
+    border-top: 1px #fff;
     background-color: white;
 }
 
-.messagebar .bar-wrapper{
-    background-color: #494b59;
+.message-bar .bar-wrapper{
+    background-color: #fff;
     border-radius: 10px;
-    width: 60 vw;
     padding: 10px;
     display: flex;
     align-items: center;
+    width: 700px;
+    overflow-y: auto;
+    flex: auto;
     justify-content: space-between;
+    margin-right: 10px;
 }
 
 .bar-wrapper input{
     width: 100%;
+    flex: auto;
     padding: 10px;
     font-size: 20;
 }

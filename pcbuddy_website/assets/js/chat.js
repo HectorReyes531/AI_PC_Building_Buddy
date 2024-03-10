@@ -20,7 +20,7 @@ function sendMessage(){
             `<div class="chat-response">
         <img src ="images/sunset.jpg" class="chatimg">
         <span class="new">
-            what
+            . . .
         </span>
     </div>`
     var k = messageBar.value;
@@ -56,8 +56,8 @@ function sendMessage(){
                 BotResponse.innerHTML = data.choices[0].message.content;
                 BotResponse.classList.remove("new");
             }).catch(error => {
-                console.log("Shibal doesn't work");
-                BotResponse.innerHTML = "Another cancerous error";
+                console.log("why doesn't it work????????????????");
+                BotResponse.innerHTML = "ERROR bot has not accounted for this type of question.";
             });
 
         }, 100);

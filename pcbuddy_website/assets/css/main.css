@@ -4015,3 +4015,36 @@ input, select, textarea {
 		top: 355px;
 		left: 576px;
 	}
+
+	.copy-link{
+		--height: 30px;
+		display: flex;
+		max-width: 250px;
+
+	}
+	.copy-link-input{
+		flex-grow: 1;
+		padding: 0 7px;
+		font-size: 15px;
+		border: 1px solid #cccc;
+		border-right: none;
+		outline: none;
+
+	}
+	.copy-link-input:hover {
+		background: #eeee;
+
+	}
+	.copy-link-button{
+		flex-shrink: 0;
+		width: var(--height);
+		height: var(--height);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #ddd;
+		color: #333;
+		outline:none;
+		border: 1px solid #eeee;
+		cursor:pointer;
+	}

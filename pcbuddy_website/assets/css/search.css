@@ -1,0 +1,30 @@
+.search{
+    --padding: 15px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: var(--padding);
+    border-radius: 30px;
+    background: #f6f6f6;
+    width: 100%;
+    transition: background 0.25s;
+}
+
+.search-input{
+    font-size: 20px;
+    font-family:'Times New Roman', Times, serif;
+    color:#333;
+    margin-left:var(--padding);
+    outline: none;
+    border: none;
+    background: transparent;
+    flex: 1;
+}
+
+.search:focus-within{
+    background: #f1f1f1;
+}
+
+.search-input::placeholder, .search-icon{
+    color: rgba(0,0, 0.25);
+}
