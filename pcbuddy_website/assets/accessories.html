@@ -3,63 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PC Build with Accessories</title>
-<link rel="stylesheet" href="accessories.css">
+<title>PC Buddy - Build with Accessories</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: white;
+  }
+  .header {
+    background-color: #1E1E1E;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  .main-components,
+  .accessories {
+    margin: 20px;
+    padding: 20px;
+    background-color: #252526;
+    border-radius: 5px;
+  }
+  h2 {
+    color: #BB86FC;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 12px;
+    border-bottom: 1px solid #444;
+    text-align: left;
+    color: #DDD;
+  }
+  th {
+    background-color: #333;
+  }
+  .accessory {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  .accessory > div {
+    flex-basis: 20%;
+    padding: 10px;
+    background-color: #333;
+    margin-right: 5px;
+    border-radius: 5px;
+  }
+  .accessory img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .buy-btn {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #BB86FC;
+    color: #1E1E1E;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  .buy-btn:hover {
+    background-color: #9A67EA;
+  }
+</style>
 </head>
 <body>
+<div class="header">
+  <h1>PC Buddy</h1>
+  <p>Your PC Building Experience Starts Here</p>
+</div>
 
-<div class="table-container">
-    <table>
-        <thead>
-            <tr>
-                <th>Component</th>
-                <th>Selection</th>
-                <th>Base</th>
-                <th>Price</th>
-                <th>Vendor</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>CPU</td>
-                <td>Selection</td>
-                <td>Base</td>
-                <td>Price</td>
-                <td>Vendor</td>
-            </tr>
-            <!-- Repeat for other components -->
-        </tbody>
-    </table>
+<div class="main-components">
+  <h2>Main Components</h2>
+  <table>
+    <tr>
+      <th>Component</th>
+      <th>Selection</th>
+      <th>Base</th>
+      <th>Shipping</th>
+      <th>Tax</th>
+      <th>Price</th>
+      <th>Vendor</th>
+    </tr>
+    <!-- Example row for a component -->
+    <tr>
+      <td>CPU</td>
+      <td>AMD Ryzen 5 5600X</td>
+      <td>Base Model</td>
+      <td>$5.99</td>
+      <td>$10.00</td>
+      <td>$299.99</td>
+      <td>Amazon</td>
+    </tr>
+    <!-- More components will be listed here -->
+  </table>
 </div>
 
 <div class="accessories">
-    <h2>Recommended Accessories</h2>
-    <div class="accessory">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAFMAlAMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAAAQQFBgcIAgP/xAA6EAABAwMCAgcFBwIHAAAAAAABAAIDBAURBiESMQcTIkFRYaEUMnGBkRUzUnKSsbJCYgglc4KiwcL/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/8QAGREBAQEBAQEAAAAAAAAAAAAAAAERIQIS/9oADAMBAAIRAxEAPwDeKIiAiIgIiICIiAiKMoJRF8Zqqng+/nij/O8D90H2RWWp1dpqkcW1OoLVG4c2urIwfpnKttR0laNgB4r9Sv8AKLik/iCgyxFgVV0vaQpyAKmrly0OHBSSbgjIO4Cy2x3q33+2x3C01LaimkyA4DBBHMEHcHyKC4IiICIiDy+RkbeKR7WjxccBWur1Pp+jOKu+WyA+ElXG0+pWr/8AERTyEWKeR8pouOWOVjT39kjAO2cB3PwCoW23RNDbqWOC4WUMMDg+okjjmn3HE2Qhw2OAW8OOb+4t3DZVR0jaOg9/UNE7yjcZP4gq2T9L+jYvcramb/To5R/IBYidQ6Ng4hJLaWCodwVMVPRSSN6scbeyWtODgs58/AELVFxNM6vqHUDCylMhMLC4nhbnYZO/1Vwb0qem3Tsf3FDc5/MRsb+7la5+nWn39m0/OfAy1LW/sCtLqMK4mtq1PTnd3A+y2ShiPjJM+T0AarZP0z6uk9xtri/JTOP7vK14iYMxqelLWk5P+c9SPCKmiA9Wk+qts+t9WVGet1DcCD+GTg/jhWFSrgqqi7XWqGKm63CYHukqpHfuVTMI60OlHGMYdxb7KEVly6l7FxprK4sqJauZtFTU5aHSyMJLi7drWtG7iRv8FTtonTPeKBlVVtZ7zo6QnHxAJx81X1k5qrVQMle4uYx+5PM5A3/2hqoZKlzqCGla9wa173OZnsknGCfE7Y8vmteplZ83Y+9PbqurfFSPililyRCZonMzzPBkjvPLzPms46NbtV6LvjYa5xNluMIlmmO0cBGwec+6Qey4c+XgsRu3sdKyhltD6imkMQMkRDmvikGM7nnvuPJXHUc77jp2juU0U0Jlmd1jS14b12N3tztwu57d+R3LNjbp3IUrWXQzq990tv2Jc5WOrqRmYH9Y1xmhG24ByC3Yb4yMea2auaiIiDAum23e3aCqpmjL6KVlQPgDwu/4uK5uBXX9+t7btZK+3PGW1VPJD+ppC4+bxAAPBDu8HuKD65UryFK0iUUIgIiKoKVClAUqFIQXBjXOt1O8HaOWVpPhkMI/9fRUtRjj88fVVVJl1rrQOcckMgH6mH1e1UJ5rdvGZOs4ptczUVop6aNpqgxgaHyMb2P7XePx9eeLvSVTNXaTroesL6tsbnNogGgMc3dhBAGx5brWUbnMORyPMHkR5rZPRVUQtjulNLMGVBa0RQP2dwjiLvju7fv5LOt4wagnqbTNQ3m0vMdVA7jBc0gA9w/uaQSCundKagpdTWOnudHs2QYkjJ3jePeafh67FcqQTcMEQ4B92A7B3O2R8CPHmsw6MdaHTF/6uskDbXXFrKjwidyEv/R8vgFmxXSaKGkEAg5B5FFkSuTdeW/7K1peaMDDW1b3t/K/tj0cuslz30/W/wBm1hTVoHZrKQZ/MwkH0LUGtgpXkL0FRKIiqClMIgIilAUhQw9ZII4+3I7kxu7j8AOavtBo3U9wANJYa94PIvi6sfV+AqLdRVs9GydsHBiePq38TQeznO3gqfCz+g6INV1JHXtoaRp59bUFzh8mg/usx030QstsgnuFwp6qXuHshIb5jLsfUKaNS2ew1l0IfHGWUwPaleDg+Q23WwbFpyjqHtkroetqIGcLHOe5ji3uPEN8jx5rZsekaHGKmoq5h+HrBGB+gA+qrINN2WBwey2UxeOUkkYe/wDU7JV+phjTtPp20xTOhoqCkqnxe/FIHSk/lI4t/LHzWRWyzXD2XjtunXUrwOyx0McALvTb5LabWNY0NYA1o5ADAC9KX1qrLpCiuVvscNLd3xvnjcQ3qzkNZnZvy5DwGBk80V6RZBao/wAQlt6/T9uuTR2qSpMbj4MkG/q1q2urXqax0upLHVWmtLmxVDQONmOJhByCM+BAQc7jTdtlstonMzqWjmhbJV3jgM7GTudw9Q5gcBGG/iPNYpVxNgq54Y5mTMjkc1srDlrwDgOHkea3JRdA9MxxNbqCeQHup6ZsZI8yXOWS27og0jRYMtLU1jh/VU1BOfk3A9FRzgXtbu4gDzKr7fabnc8fZ1trKoHkYKd7x9QMLqe26XsFrx9n2agpyP6mU7Q764yrumjme39F+sa0cX2UKYdxqZms9ASfRZHQdB93laDX3mipvFsMTpsfMlq3qiaNYW/oTsEODXV9wqj4BzY2+gz6rJKHo30hRABljpZsd9SDN/MlZWigp6SipaJnBR00MDPwxRho9FUIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiIP//Z" alt="Gaming Mouse">
-        <p>Mousepad - $15</p>
-    </div>
-    <!-- Repeat other accessories -->
-    <div class="accessory">
-        <img src="keyboard.jpg" alt="Mechanical Keyboard">
-        <p>Mechanical Keyboard - $120</p>
-    </div>
-    <div class="accessory">
-        <img src="monitor.jpg" alt="Gaming Monitor">
-        <p>Gaming Monitor - $250</p>
-    </div>
-    <div class="accessory">
-        <img src="headphones.jpg" alt="Gaming Headphones">
-        <p>Gaming Headphones - $80</p>
-    </div>
-    <!-- New Accessories -->
-    <div class="accessory">
-        <img src="chair.jpg" alt="Gaming Chair">
-        <p>Gaming Chair - $350</p>
-    </div>
-    <div class="accessory">
-        <img src="microphone.jpg" alt="Microphone">
-        <p>Hyperx QuadCast S - $159.00</p>
-    </div>
+  <h2>Recommended Accessories</h2>
+  <div class="accessory">
+    <div><img src="data:image/jpeg;base64,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" alt="Mousepad">
+      <p>Logitech G440 Hard Gaming Mouse Pad for Gaming</p>
+      <p class="price">Price: $29.99</p>
+      <a href="https://www.amazon.com/Logitech-G440-Hard-Gaming-Mouse/dp/B01DKTP3PY/ref=sr_1_9?crid=2UANSIPH3W8P1&dib=eyJ2IjoiMSJ9.Fr_t1-izDD0lekJ3gjh_TbYy_FBF_Go-QMM3jmhFoaPbONS-VMrNludzcZV_xXr3H7kjM_oULrK1_ot4Xa2MgN5jCx92G_ireR66L2rhlhUqCIpoSMxWxBP9gAg74luuqRoSldrGH7UxzWsPazTMVg_ZFj0PkRU_Pz_H5YvIDXz2xQdYL8iEoJDDdnHnoggHDB6AQuAwG0XLoTaukVMza2xmsBpsQuAlErPEr2aT_2qIURLqYLmYEXm_t8BsSL7xl6Hlfh1YFOCdNCwrY6mpI3Nrwc-9TJrimsJFhra3X7Y.wqoQiLKkKF4DGVvTfF6_tgfBl4Kt7AGlvm6e4NX5uTw&dib_tag=se&keywords=mouse%2Bpad%2Blogitech&qid=1710046358&sprefix=mouse%2Bpad%2Blog%2Caps%2C142&sr=8-9&th=1" 
+      class="buy-btn">Buy Now</a></div>
+    <div><img src="https://m.media-amazon.com/images/I/51AIh115YLL._AC_UF894,1000_QL80_.jpg" alt="Headsetstand">
+      <p>Headset Stand</p>
+      <p class="price">Price: $8.99</p>
+      <a href="https://www.amazon.com/Headphone-New-Earphone-Supporting-Headphones/dp/B01GJQ7N94" 
+      class="buy-btn">Buy Now</a></div>
+    <div><img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQEhHB1wcfYYw2EjEaZAaOeuGHUs3jXIq0d7-ueExZB5LKX35hKLFxBbmLqB0kbVRSShjElkkHrwocB5mdgmEsbymTuw4BvK-TnJe8kMxdRuNPqVbvApEjl" alt="HDMI">
+      <p>HDMI Cable</p>
+      <p class="price">Price: $9.32</p>
+      <a href="https://www.amazon.com/AmazonBasics-High-Speed-HDMI-Cable-1-Pack/dp/B014I8SSD0?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ATVPDKIKX0DER" 
+      class="buy-btn">Buy Now</a></div>
+    <div><img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTC70zNtGol_o1lroZb49Y-vHII269iXpXLRmQ1h2Ze76E_x1fIJiRsszBAPUwAI82RKQ5Ca1PtxGx2jsxaVTw6W-vctBO0lRfj-4QUal8YcuK28-6TuyQ0il4" alt="USB">
+      <p>USB Extension Cable</p>
+      <p class="price">Price: $7.99</p>
+      <a href="https://www.amazon.com/Extension-ITANDA-Transfer-Keyboard-Playstation/dp/B08FJ8Z4TJ?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1QDY8QOTGCZS0" 
+      class="buy-btn">Buy Now</a></div>
+    <!-- More accessories will be listed here -->
+  </div>
 </div>
+
 </body>
 </html>

@@ -1,0 +1,62 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .product-list-container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .product-list-header, .product-entry {
+    display: grid;
+    grid-template-columns: 30px repeat(7, auto) 100px 80px;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .product-list-header {
+    border-bottom: 2px solid #eee;
+    font-weight: bold;
+  }
+  
+  .product-entry:nth-child(even) {
+    background-color: #fafafa;
+  }
+  
+  .product-entry:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .rating {
+    display: inline-block;
+    color: #ffc107; /* Gold color */
+  }
+  
+  button {
+    padding: 5px 15px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #1258a7;
+  }
+  
+  input[type="checkbox"] {
+    margin-left: 10px;
+  }
+  

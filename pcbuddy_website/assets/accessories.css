@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -53,4 +55,30 @@ th {
 .accessory p {
     margin: 0;
     color: #adafb2;
+}
+
+
+body.is-preload #banner h2 {
+    -moz-transform: none;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    opacity: 1;
+}
+
+body.is-preload #banner h2:before, 
+body.is-preload #banner h2:after {
+    width: 100%;
+}
+
+body.is-preload #banner .more {
+    -moz-transform: none;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    opacity: 1;
+}
+
+body.is-preload #banner:after {
+    opacity: 0;
 }
