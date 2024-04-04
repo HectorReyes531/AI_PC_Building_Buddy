@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>Trending News</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <!--Have to hard code style in the html to override the problems caused by bootstrap and main.css conflicting-->
+    <style>
+        #main header,
+        h1 {
+            color: #fff;
+        }
+
+        h1 {
+            font: inherit;
+            color: #fff;
+            font-weight: 800;
+            letter-spacing: 0.225em;
+            line-height: 1em;
+            margin: 0 0 1em 0;
+            text-transform: uppercase;
+        }
+
+        #header h1 {
+            -moz-transition: opacity 0.2s ease;
+            -webkit-transition: opacity 0.2s ease;
+            -ms-transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease;
+            height: inherit;
+            left: 1.25em;
+            line-height: inherit;
+            position: absolute;
+            top: 0;
+        }
+
+        #header h1 a {
+            border: 0;
+            display: block;
+            height: inherit;
+            line-height: inherit;
+        }
+
+        @media screen and (max-width: 736px) {
+
+            #header h1 a {
+                font-size: 0.8em;
+            }
+
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Alex: this is the menu bar that can be toggled once clicked -->
+        <header id="header">
+            <h1><a href="index.html">PC Building Buddy</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li class="special">
+                        <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                        <div id="menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="generic.html">Builder</a></li>
+                                <li><a href="news.html">News and Trends</a></li>
+                                <li><a href="howtobuild.html">How-To-Build Guide</a></li>
+                                <li><a href="login_signup.html">Register</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main -->
+        <article id="main">
+            <header>
+                <h2>Game-Based PC Build Generator</h2>
+            </header>
+            <section class="wrapper style5">
+                <!-- The form with black font color for inputs and button -->
+                <form role="search" id="gameAndBudgetInputForm" style="display: flex; flex-direction: column; align-items: center;">
+                    <input id="gameInput" class="form-control mb-2" type="search" placeholder="Type game names here..." aria-label="Search" style="max-width: 600px; width: 100%; color: black;">
+                    <input id="budgetInput" class="form-control mb-2" type="number" placeholder="Enter your budget..." aria-label="Budget" style="max-width: 300px; width: 100%; color: black;">
+                    <button id="submitGamesAndBudget" class="btn btn-outline-success" type="submit" style="width: auto; padding: 0.5em 1em; color: black;">Generate PC Build</button>
+                </form>
+                <div class="container">
+                    <!-- Dynamic area where results or messages can be displayed -->
+                    <div id="buildResults">
+                        <h3>PC Build Suggestions</h3>
+                        <!-- Suggestions will be dynamically inserted here -->
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <!-- social media icons, no accounts just yet -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Untitled</li>
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </footer>
+
+    </div>
+</body>
+
+</html>
