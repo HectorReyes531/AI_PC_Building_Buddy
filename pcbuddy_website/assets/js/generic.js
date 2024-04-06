@@ -6,6 +6,7 @@ const API_KEY = "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";
 document.getElementById("searchform").addEventListener("submit", function(event){
     event.preventDefault();
     var res = document.getElementById("searchinput").value;
+    res.value += " itemize every PC component.";
     // console.log(res)
     setTimeout(() => {
         console.log(res);
