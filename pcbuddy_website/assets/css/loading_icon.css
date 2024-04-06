@@ -1,52 +1,70 @@
-/* encompasses the whole icon */
-.loaderContainer {
-  display: flex;
-  width: 9em;
-  overflow: hidden;
-  gap: 0.5em;
+.cube-loader {
+  margin: auto;
+  position: relative;
+  width: 60px;
+  height: 60px;
 }
-/* holds the boxes as they transition*/
-.particleContainer {
-  display: flex;
-  gap: 0.5em;
-  animation: slide 2000ms linear infinite;
+
+.cube {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: #333;
+  border: 2px solid #fff;
+  animation: phasing 2.4s infinite linear;
 }
-/* represents each individual box */
-.particleContainer div {
-  width: 2.5em;
-  aspect-ratio: 1;
-  border-radius: 5px;
-  background: black;
-  transform-origin: left bottom;
-  animation: squeeze 750ms ease-in-out infinite;
+
+/* Initialized 4 cube positions */
+.cube1 {
+  top: 0;
+  left: 0;
+  transform-origin: 100% 100%;
 }
-.particleContainer div:nth-child(2) {
-  animation-delay: 25ms;
+.cube2 {
+  top: 0;
+  right: 0;
+  transform-origin: 0 100%;
 }
-.particleContainer div:last-child {
-  animation-delay: 50ms;
+.cube3 {
+  bottom: 0;
+  right: 0;
+  transform-origin: 0 0;
 }
-/* boxes expanding and contracting */
-@keyframes squeeze {
-  0% {
-    transform: scale(1) translateY(0);
+.cube4 {
+  bottom: 0;
+  left: 0;
+  transform-origin: 100% 0;
+}
+
+/* animating each cube to move into each other while fading */
+@keyframes phasing {
+  0%,
+  10% {
+    transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
   }
-  50% {
-    transform: scale(0.75);
-  }
+  25%,
   75% {
-    transform: scale(1.05);
+    transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
   }
+  90%,
   100% {
-    transform: scale(1);
+    transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
   }
 }
-/* boxes sliding as time passes */
-@keyframes slide {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(calc(-50% + 1.25em));
-  }
+
+/* delaying each animation to make a smoother appearance */
+.cube1 {
+  animation-delay: 0.3s;
+}
+.cube2 {
+  animation-delay: 0.6s;
+}
+.cube3 {
+  animation-delay: 0.9s;
+}
+.cube4 {
+  animation-delay: 1.2s;
 }
