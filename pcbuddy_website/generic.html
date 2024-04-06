@@ -3,14 +3,18 @@
 <html>
 
 <head>
-	<title>Generic - Spectral by HTML5 UP</title>
+	<title>Generate Your Build</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/search.css" />
 
+	<link rel="stylesheet" href="assets\css\bootstrap.min.css" />
+
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+	
+
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
@@ -59,43 +63,64 @@
 						</div>
 					</form>
 
-					<h3>Lorem ipsum dolor</h3>
-					<p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean
-						tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex
-						tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas
-						sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis
-						risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec
-						vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in
-						faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex
-						a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida
-						sapien.</p>
+					<!-- the search bars for the games and and input for the amount of budget they need -->
+					<form role="search" id="gameAndBudgetInputForm" style="display: flex; flex-direction: column; align-items: center;">
+						<div class="search mb-2" style="max-width: 600px; width: 100%;">
+							<span class="search-icon material-symbols-outlined">search</span>
+							<input id="gameInput" class="search-input form-control" type="search" placeholder="Type game names here..." aria-label="Search" style="padding-left: 2em; color: black;">
+						</div>
+						
+						<!-- Dropdown Button -->
+						<div class="dropdown mb-2">
+							<button class="btn btn-light dropdown-toggle" type="button" id="partsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+							  Have a part in mind?
+							</button>
+							<ul class="dropdown-menu" aria-labelledby="partsDropdown">
+							  <li><button class="dropdown-item" type="button">Case Accessory</button></li>
+							  <li><button class="dropdown-item" type="button">Case Fan</button></li>
+							  <li><button class="dropdown-item" type="button">Case</button></li>
+							  <li><button class="dropdown-item" type="button">CPU Cooler</button></li>
+							  <li><button class="dropdown-item" type="button">CPU</button></li>
+							  <li><button class="dropdown-item" type="button">External Hard Drive</button></li>
+							  <li><button class="dropdown-item" type="button">Fan Controller</button></li>
+							  <li><button class="dropdown-item" type="button">Headphones</button></li>
+							  <li><button class="dropdown-item" type="button">Internal Hard Drive</button></li>
+							  <li><button class="dropdown-item" type="button">Keyboard</button></li>
+							  <li><button class="dropdown-item" type="button">Memory</button></li>
+							  <li><button class="dropdown-item" type="button">Monitor</button></li>
+							  <li><button class="dropdown-item" type="button">Motherboard</button></li>
+							  <li><button class="dropdown-item" type="button">Mouse</button></li>
+							  <li><button class="dropdown-item" type="button">Optical Drive</button></li>
+							  <li><button class="dropdown-item" type="button">Operating System (OS)</button></li>
+							  <li><button class="dropdown-item" type="button">Power Supply</button></li>
+							  <li><button class="dropdown-item" type="button">Sound Card</button></li>
+							  <li><button class="dropdown-item" type="button">Speakers</button></li>
+							  <li><button class="dropdown-item" type="button">Thermal Paste</button></li>
+							  <li><button class="dropdown-item" type="button">UPS</button></li>
+							  <li><button class="dropdown-item" type="button">Video Card</button></li>
+							  <li><button class="dropdown-item" type="button">Webcam</button></li>
+							  <li><button class="dropdown-item" type="button">Wired Network Card</button></li>
+							  <li><button class="dropdown-item" type="button">Wireless Network Card</button></li>
+							</ul>
+						  </div> 
+						
+						<div class="search mb-2" style="max-width: 300px; width: 100%;">
+							<span class="search-icon material-symbols-outlined">attach_money</span>
+							<input id="budgetInput" class="search-input form-control" type="number" placeholder="Enter your budget..." aria-label="Budget" style="padding-left: 2em; color: black;">
+						</div>
+						<button id="submitGamesAndBudget" class="btn search-button" type="submit" style="max-width: 200px; width: 100%; background-color: #f5f5f5; border: 1px solid #ccc; color: black; padding: 0.5em 1em;">Generate PC Build</button>
+					</form>
 
-					<p>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem.
-						Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu
-						faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec dui
-						cursus, posuere dui eget interdum. Fusce lectus magna, sagittis at facilisis vitae, pellentesque
-						at etiam. Quisque posuere leo quis sem commodo, vel scelerisque nisi scelerisque. Suspendisse id
-						quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum
-						ullamcorper ante tincidunt. Mauris felis nec felis elementum varius.</p>
+					<div class="container">
+						<div id="buildResults">
+							<h3>PC Build Suggestions</h3>
+							<!-- Suggestions will be dynamically inserted here -->
+						</div>
+					</div>
+				</section>
+			</article>
 
-					<hr />
-
-					<h4>Feugiat aliquam</h4>
-					<p>Nam sapien ante, varius in pulvinar vitae, rhoncus id massa. Donec varius ex in mauris ornare,
-						eget euismod urna egestas. Etiam lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor
-						quam, semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum nisl. Aenean erat diam,
-						tempus aliquet erat.</p>
-
-					<p>Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut. Phasellus rutrum cursus velit, eget
-						condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet
-						eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus
-						justo. Duis neque ligula, elementum ut enim vel, posuere finibus justo. Vivamus facilisis
-						maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. Proin
-						mauris dui, at vestibulum sit amet, auctor bibendum neque.</p>
-
-				</div>
-			</section>
-		</article>
+					
 
 		<!-- Footer -->
 		<footer id="footer">
@@ -122,6 +147,8 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets\js\bootstrap.bundle.min.js"></script>
+
 	<script>
 
 	</script>

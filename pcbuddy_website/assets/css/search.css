@@ -29,3 +29,20 @@
 .search-input::placeholder, .search-icon{
     color: rgba(0,0, 0.25);
 }
+
+.custom-dropdown-button {
+    background-color: #ffffff; /* Set the background to white */
+    color: #000000; /* Set the text color to black */
+    border: 1px solid #cccccc; /* Set the border color */
+}
+
+.custom-dropdown-button:hover {
+    background-color: #eeeeee; /* Slightly darker on hover */
+}
+
+.dropdown-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
