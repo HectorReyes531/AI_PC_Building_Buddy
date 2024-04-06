@@ -18,6 +18,49 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+	<style>
+        #main header,
+        h1 {
+            color: #fff;
+        }
+
+        h1 {
+            font: inherit;
+            color: #fff;
+            font-weight: 800;
+            letter-spacing: 0.225em;
+            line-height: 1em;
+            margin: 0 0 1em 0;
+            text-transform: uppercase;
+        }
+
+        #header h1 {
+            -moz-transition: opacity 0.2s ease;
+            -webkit-transition: opacity 0.2s ease;
+            -ms-transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease;
+            height: inherit;
+            left: 1.25em;
+            line-height: inherit;
+            position: absolute;
+            top: 0;
+        }
+
+        #header h1 a {
+            border: 0;
+            display: block;
+            height: inherit;
+            line-height: inherit;
+        }
+
+        @media screen and (max-width: 736px) {
+
+            #header h1 a {
+                font-size: 0.8em;
+            }
+
+        }
+    </style>
 </head>
 
 <body class="is-preload">
