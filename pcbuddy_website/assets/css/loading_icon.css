@@ -1,10 +1,11 @@
+/* encapsulate the space the cube takes */
 .cube-loader {
   margin: auto;
   position: relative;
   width: 60px;
   height: 60px;
 }
-
+/* cube should be placed in the middle and play an animation */
 .cube {
   position: absolute;
   width: 50%;
@@ -14,23 +15,23 @@
   animation: phasing 2.4s infinite linear;
 }
 
-/* Initialized 4 cube positions */
-.cube1 {
+/* Initialized 4 initial squares */
+.square1 {
   top: 0;
   left: 0;
   transform-origin: 100% 100%;
 }
-.cube2 {
+.square2 {
   top: 0;
   right: 0;
   transform-origin: 0 100%;
 }
-.cube3 {
+.square3 {
   bottom: 0;
   right: 0;
   transform-origin: 0 0;
 }
-.cube4 {
+.square4 {
   bottom: 0;
   left: 0;
   transform-origin: 100% 0;
@@ -56,15 +57,15 @@
 }
 
 /* delaying each animation to make a smoother appearance */
-.cube1 {
+.square1 {
   animation-delay: 0.3s;
 }
-.cube2 {
+.square2 {
   animation-delay: 0.6s;
 }
-.cube3 {
+.square3 {
   animation-delay: 0.9s;
 }
-.cube4 {
+.square4 {
   animation-delay: 1.2s;
 }

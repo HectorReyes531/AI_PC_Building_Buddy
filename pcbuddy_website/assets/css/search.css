@@ -21,7 +21,7 @@
     background: transparent;
     flex: 1;
 }
-
+/* changes the color when hovered */
 .search:focus-within{
     background: #f1f1f1;
 }
@@ -29,11 +29,12 @@
 .search-input::placeholder, .search-icon{
     color: rgba(0,0, 0.25);
 }
-
+/* Table with basic spacing */
 table{
     border-collapse: collapse;
     width: 100%;
 }
+/* represents the individual cells */
 th, td{
     border: 1px solid black;
     padding: 8px;
