@@ -101,6 +101,6 @@ function fetchData() {
     };
 
     // Replace 'your_server_script.php' with the URL of your server-side script to fetch data from PostgreSQL
-    xhr.open('GET', 'your_server_script.php?search=' + encodeURIComponent(searchValue), true);
+    xhr.open('GET', 'fetchparts.php?search=' + encodeURIComponent(searchValue), true);
     xhr.send();
 }
