@@ -81,3 +81,26 @@
 		}
 
 })(jQuery);
+
+// Retrieve component parts from PHP form
+function fetchData() {
+    var searchValue = document.getElementById("searchinput").value;
+
+    // AJAX request to fetch data from the server
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // Request was successful, update the search results
+                document.getElementById("searchResults").innerHTML = xhr.responseText;
+            } else {
+                // Handle error
+                console.error('Error fetching data:', xhr.statusText);
+            }
+        }
+    };
+
+    // Replace 'your_server_script.php' with the URL of your server-side script to fetch data from PostgreSQL
+    xhr.open('GET', 'fetchparts.php?search=' + encodeURIComponent(searchValue), true);
+    xhr.send();
+}
