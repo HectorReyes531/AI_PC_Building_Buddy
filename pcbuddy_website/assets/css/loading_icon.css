@@ -16,22 +16,22 @@
 }
 
 /* Initialized 4 initial squares */
-.square1 {
+.cube1 {
   top: 0;
   left: 0;
   transform-origin: 100% 100%;
 }
-.square2 {
+.cube2 {
   top: 0;
   right: 0;
   transform-origin: 0 100%;
 }
-.square3 {
+.cube3 {
   bottom: 0;
   right: 0;
   transform-origin: 0 0;
 }
-.square4 {
+.cube4 {
   bottom: 0;
   left: 0;
   transform-origin: 100% 0;
@@ -57,15 +57,15 @@
 }
 
 /* delaying each animation to make a smoother appearance */
-.square1 {
+.cube1 {
   animation-delay: 0.3s;
 }
-.square2 {
+.cube2 {
   animation-delay: 0.6s;
 }
-.square3 {
+.cube3 {
   animation-delay: 0.9s;
 }
-.square4 {
+.cube4 {
   animation-delay: 1.2s;
 }

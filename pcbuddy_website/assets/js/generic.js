@@ -29,11 +29,11 @@ document.getElementById("searchform").addEventListener("submit", function(event)
         }).then(response => response.json())
         .then(data => {
             // log data and then parse based on new lines as well as olons
-            console.log(data)
+            // console.log(data)
             var text = data.choices[0].message.content;
-            console.log(text);
+            // console.log(text);
             var items = text.split('\n').filter(line => line.includes(':')).map(line=>line.trim());
-            console.log(items);
+            // console.log(items);
             // create a table to poupulate the items
             var table = document.getElementById('compitems');
             table.innerHTML = '';
