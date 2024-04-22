@@ -4,6 +4,8 @@ const searchBar = document.querySelector(".search")
 const API_URL = "https://api.openai.com/v1/chat/completions";
 const API_KEY = "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";
 
+const api = "localhost:5000/data"
+
 // event that triggers when the search bar encounters an action
 document.getElementById("searchform").addEventListener("submit", function(event){
     // prevent search bar from reloading
