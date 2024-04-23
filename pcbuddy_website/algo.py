@@ -1,6 +1,7 @@
 import subprocess
 import sys
 import json
+import cgi
 
 def install(library):
     subprocess.check_call([sys.executable, "-m", "pip", "install", library])
@@ -28,16 +29,27 @@ def  AI_PC_Buddy(prompt):
     )
     return response.choices[0].message.content.strip()
 
+# Process CGI input and output
+form = cgi.FieldStorage()
+prompt = form.getValue('prompt', '')
 
-close_program = ['quit', 'exit', 'bye', 'later']
+response = AI_PC_Buddy(prompt)
 
-while True:
-    user_input = input('You: ')
-    if user_input.lower() in close_program:
-        break
+print("Content-type: application/json\n")
+print(json.dumps({'response': response}))
 
-    response =  AI_PC_Buddy(user_input)
-    print(f'AI PC Buddy:  {response}')
+
+# close_program = ['quit', 'exit', 'bye', 'later']
+
+# while True:
+#     user_input = input('You: ')
+#     if user_input.lower() in close_program:
+#         break
+
+#     response =  AI_PC_Buddy(user_input)
+#     print(f'AI PC Buddy:  {response}')
+
+
 
 # csv_dataframes = [case_accessory_csv_file_path, case_csv_file_path, 
 #                   cpu_cooler_csv_file_path, cpu_csv_file_path, 

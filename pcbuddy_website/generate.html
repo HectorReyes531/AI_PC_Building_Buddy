@@ -100,13 +100,17 @@
 				<div class="inner">
 					<!--search bar, can potentially link inputs to python file using cgi library-->
 					<!--just need to change the action to ~/pyfile and add an action="get" i think-->
-					<form id="searchform">
+
+					<!-- SEARCH FORM  -->
+					<form id="searchform" onsubmit="submitForm(event)">
 						<div class="search">
 							<span class="search-icon material-symbols-outlined">search</span>
-							<input id="searchinput" class="search-input" type="search" placeholder="Parameters">
-							<button type="submit">Search</button>
+							<input id="searchinput" class="search-input" type="search" placeholder="What did you want to build? ">
+							<button type="submit">Generate</button>
 						</div>
 					</form>
+
+				<div id="responseContainer"></div>
 
 					<!-- the search bars for the games and and input for the amount of budget they need -->
 					<form role="search" id="gameAndBudgetInputForm" style="display: flex; flex-direction: column; align-items: center;">
@@ -195,6 +199,25 @@
 	<script src="assets/js/generic.js"></script>
 
 	<script>
+		function submitForm(event) {
+			// prevent default form submission
+			event.preventDefault();
+			
+			// Capture user input
+			var userInput = document.getElementById("searchinput").value;
+			
+			// Send user input over to the server
+			fetch('algo.py', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/x-www.form-urlencoded',
+				},
+				body: 'prompt=' + encodeURIComponent(userInput),
+			})
+
+			.then(response => response.json())
+			.then(data => )
+		}
 
 	</script>
 
