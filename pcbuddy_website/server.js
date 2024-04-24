@@ -1,36 +1,35 @@
 const http = require('http');
-const { spawn } = require('child_process');
+const { exec } = require('child_process');
+const qs = require('querystring');
+
+const PORT = process.env.PORT || 8001;
 
 const server = http.createServer((req, res) => {
     if (req.method === 'POST' && req.url === '/execute_script') {
-        let data = '';
-        req.on('data', chunk => {
-            data += chunk;
+        let body = '';
+        req.on('data', (chunk) => {
+            body += chunk.toString();
         });
         req.on('end', () => {
-            const userInput = JSON.parse(data).prompt;
-            const pythonProcess = spawn('python', ['algo.py'], { shell: true });
-            let responseData = '';
-
-            pythonProcess.stdout.on('data', (chunk) => {
-                responseData += chunk;
+            const userInput = qs.parse(body).prompt;
+            exec(`python3 algo.py "${userInput}"`, (error, stdout, stderr) => {
+                if (error) {
+                    console.error(`Error executing Python script: ${error}`);
+                    res.writeHead(500, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ error: 'Internal server error' }));
+                } else {
+                    console.log(`Python script output: ${stdout}`);
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ response: stdout }));
+                }
             });
-
-            pythonProcess.on('close', (code) => {
-                res.writeHead(200, { 'Content-Type': 'application/json' });
-                res.end(responseData);
-            });
-
-            pythonProcess.stdin.write(userInput);
-            pythonProcess.stdin.end();
         });
     } else {
-        res.writeHead(404, { 'Content-Type': 'text/plain' });
-        res.end('Not Found');
+        res.writeHead(404, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Not Found' }));
     }
 });
 
-const PORT = 8002;
 server.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
