@@ -110,7 +110,9 @@
 						</div>
 					</form>
 
-				<div id="responseContainer"></div>
+				<div id="responseContainer" class="search" >
+					Response: 
+				</div>
 
 					<!-- the search bars for the games and and input for the amount of budget they need -->
 					<form role="search" id="gameAndBudgetInputForm" style="display: flex; flex-direction: column; align-items: center;">
@@ -206,21 +208,26 @@
 			// Capture user input
 			var userInput = document.getElementById("searchinput").value;
 			
-			// Send user input over to the server
-			fetch('algo.py', {
+			// Send user input over to execute python script locally
+			fetch('/execute_script', {
 				method: 'POST',
 				headers: {
-					'Content-Type': 'application/x-www.form-urlencoded',
+					'Content-Type': 'application/json',
 				},
-				body: 'prompt=' + encodeURIComponent(userInput),
+				body: JSON.stringify({ prompt: userInput }),
 			})
-
 			.then(response => response.json())
-			.then(data => )
-		}
+			.then(data => {
+				// Display response from the Python script
+				var responseContainer = document.getElementById("responseContainer");
+				responseContainer.innerHTML = "<p>" + data.response + "</p>";
 
+			})
+			.catch(error => {
+				console.error('Error:', error);
+			});
+		}
 	</script>
 
 </body>
-
 </html>
