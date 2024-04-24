@@ -216,7 +216,13 @@
 				},
 				body: JSON.stringify({ prompt: userInput }),
 			})
-			.then(response => response.json())
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Server response was not OK')
+				}
+				return response.json();
+			})
+
 			.then(data => {
 				// Display response from the Python script
 				var responseContainer = document.getElementById("responseContainer");
