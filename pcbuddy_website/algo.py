@@ -1,24 +1,24 @@
+import http.server
+import cgi
+import json
 import subprocess
 import sys
-import json
-import cgi
-
-def install(library):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", library])
-
-install('openai')
-
+import os
 import openai
-from openai import OpenAI
 
-# Set up OpenAI API key
-openai.api_key = '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'
-
-
-client = OpenAI(
-    # This is the default and can be omitted
-    api_key='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',
-)
+class MyHttpRequestHandler(http.server.BaseHTTPRequestHandler):
+    def do_POST(self):
+        if self.path == '/execute_sc}ript':
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length).decode('utf-8')
+            parsed_data = cgi.parse_qs(post_data)
+            prompt = parsed_data['prompt'][0]
+            response = AI_PC_Buddy(prompt)
+            
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps({'response': response}).encode('utf-8'))
 
 def  AI_PC_Buddy(prompt):
     messages = [{'role': 'user', 'content': prompt}]
@@ -29,14 +29,60 @@ def  AI_PC_Buddy(prompt):
     )
     return response.choices[0].message.content.strip()
 
-# Process CGI input and output
-form = cgi.FieldStorage()
-prompt = form.getValue('prompt', '')
+def install(library):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", library])
 
-response = AI_PC_Buddy(prompt)
+def run(server_class=http.server.HTTPServer, handler_class=MyHttpRequestHandler):
+    server_address = ('', 8000)
+    httpd = server_class(server_address, handler_class)
+    httpd.serve_forever()
 
-print("Content-type: application/json\n")
-print(json.dumps({'response': response}))
+if __name__ == '__main__':
+    install('openai')
+    openai.api_key = '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'
+    run()
+
+
+
+# import subprocess
+# import sys
+# import json
+# import cgi
+
+# def install(library):
+#     subprocess.check_call([sys.executable, "-m", "pip", "install", library])
+
+# install('openai')
+
+# import openai
+# from openai import OpenAI
+
+# # Set up OpenAI API key
+# openai.api_key = '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'
+
+
+# client = OpenAI(
+#     # This is the default and can be omitted
+#     api_key='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',
+# )
+
+# def  AI_PC_Buddy(prompt):
+#     messages = [{'role': 'user', 'content': prompt}]
+    
+#     response = client.chat.completions.create(
+#         model='gpt-3.5-turbo',
+#         messages=messages
+#     )
+#     return response.choices[0].message.content.strip()
+
+# # Process CGI input and output
+# form = cgi.FieldStorage()
+# prompt = form.getValue('prompt', '')
+
+# response = AI_PC_Buddy(prompt)
+
+# print("Content-type: application/json\n")
+# print(json.dumps({'response': response}))
 
 
 # close_program = ['quit', 'exit', 'bye', 'later']

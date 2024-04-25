@@ -111,7 +111,6 @@
 					</form>
 
 				<div id="responseContainer" class="search" >
-					Response: 
 				</div>
 
 					<!-- the search bars for the games and and input for the amount of budget they need -->
@@ -154,7 +153,7 @@
 
 					<div class="container">
 						<div id="buildResults">
-							<h3>PC Build Suggestions</h3>
+							<h3>PC Build</h3>
 							<!-- Suggestions will be dynamically inserted here -->
 							<table id="compitems">
 								<tr>
@@ -209,12 +208,12 @@
 			var userInput = document.getElementById("searchinput").value;
 			
 			// Send user input over to execute python script locally
-			fetch('/execute_script', {
+			fetch('execute_script', {
 				method: 'POST',
 				headers: {
-					'Content-Type': 'application/json',
+					'Content-Type': 'application/x-www-form-urlencoded',
 				},
-				body: JSON.stringify({ prompt: userInput }),
+				body: 'prompt=' + encodeURIComponent(userInput),
 			})
 			.then(response => {
 				if (!response.ok) {
