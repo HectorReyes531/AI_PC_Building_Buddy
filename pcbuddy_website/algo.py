@@ -27,7 +27,10 @@ def  AI_PC_Buddy(prompt):
         model='gpt-3.5-turbo',
         messages=messages
     )
-    return response.choices[0].message.content.strip()
+
+    response_content = response.choices[0].message.content.strip()
+    final_response = "AI PC Buddy: " + response_content
+    return final_response
 
 def install(library):
     subprocess.check_call([sys.executable, "-m", "pip", "install", library])
