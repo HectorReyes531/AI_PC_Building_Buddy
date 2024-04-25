@@ -54,8 +54,8 @@ document.getElementById("searchform").addEventListener("submit", function(event)
 
                 part_cell.innerHTML = partName;
                 brand_cell.innerHTML = brandName;
-                price_cell.innerHTML = 'N/A';
-                link_cell.innerHTML = 'N/A';
+                // price_cell.innerHTML = 'N/A';
+                // link_cell.innerHTML = 'N/A';
             }).catch(error => {
                 console.log("no response from openai");
             })
