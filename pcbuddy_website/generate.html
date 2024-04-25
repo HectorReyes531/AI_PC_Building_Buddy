@@ -145,7 +145,7 @@
 						
 						<div class="search mb-2" style="max-width: 300px; width: 100%;">
 							<span class="search-icon material-symbols-outlined">attach_money</span>
-							<input id="budgetInput" class="search-input form-control" type="number" placeholder="Enter your budget..." aria-label="Budget" style="padding-left: 2em; color: black;">
+							<input id="searchform" class="search-input form-control" type="number" placeholder="Enter your budget..." aria-label="Budget" style="padding-left: 2em; color: black;">
 						</div>
 						<button id="submitGamesAndBudget" class="btn search-button" type="submit" style="max-width: 250px; width: 100%; background-color: #f5f5f5; border: 1px solid #ccc; color: black; padding: 0.5em 1em;">Generate PC Build</button>
 					</form>
@@ -205,6 +205,12 @@
 			
 			// Capture user input: var userInput
 			var userInput = document.getElementById("searchinput").value;
+
+			
+			// FIXME
+			// var searchInput = document.getElementById("searchinput").input;
+			// var gameBudget = document.getElementById("budgetInput").input
+			// var userInput = searchInPut + "Budget of $ " + gameBudget;
 			
 			// Send user input over to execute python script locally
 			fetch('execute_script', {
