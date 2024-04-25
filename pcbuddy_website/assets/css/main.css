@@ -3975,8 +3975,10 @@ input, select, textarea {
 		background-color: rgba(29, 36, 42, 0.9);
 	}
 
+	/* Edited background image */
 	body.is-mobile.landing #page-wrapper {
-		background: none;
+		background-image: url(/pcbuddy_website/images/pic06_homescreen.png);
+		/* background: none; */
 	}
 
 	body.is-mobile.landing #banner,
