@@ -28,12 +28,13 @@ const client = new Client({
 client.connect();
 
 app.get('/', async (req, res)=> {
-    console.log("query");
+    // console.log("query");
     //res.send("dfsdfs");
-    // const part = req.query.part;
-    const part = 'os';
+    const part = req.query.part;
+    console.log(part);
+    // const part = 'os';
     try{
-        const result = await client.query(`SELECT * FROM pc_parts.${part}`);
+        const result = await client.query(`SELECT * FROM pc_parts."${part}"`);
         res.json(result.rows);
     }catch(error){
         console.error('error executing query', error);
