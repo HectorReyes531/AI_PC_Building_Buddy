@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>Parts Page/Database</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/search.css" />
+
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<h1><a href="index.html">PC Building Buddy</a></h1>
+			<nav id="nav">
+				<ul>
+					<li class="special">
+						<a href="#menu" class="menuToggle"><span>Menu</span></a>
+						<div id="menu">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="generate.html">Builder</a></li>
+								<li><a href="news.html">News and Trends</a></li>
+								<li><a href="howtobuild.html">How-To-Build Guide</a></li>
+								<li><a href="login_signup.html">Register</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Main -->
+		<article id="main">
+			<header>
+				<h2>Parts</h2>
+				<p>You can search through our parts database.</p>
+			</header>
+			<section class="wrapper style5">
+				<div class="inner">
+					<!--search bar, can potentially link inputs to python file using cgi library-->
+					<!--just need to change the action to ~/pyfile and add an action="get" i think-->
+					<label for="part-type"> Select Part Type:</label>
+					<select id="part-type">
+						<option value="video-card">Graphics Card</option>
+						<option value="cpu">Central Processing Unit</option>
+						<option value="memory">memory</option>
+						<option value="motherboard">motherboard</option>
+						<option value="internal-hard-drive">internal storage</option>
+						<option value="external-hard-drive">external storage</option>
+						<option value="case">case</option>
+						<option value="cpu-cooler">cpu cooler</option>
+						<option value="case-fan">case fan</option>
+						<option value="fan-controller">fan controller</option>
+						<option value="headphones">headphones</option>
+						<option value="keyboard">keyboard</option>
+						<option value="monitor">monitor</option>
+						<option value="mouse">mouse</option>
+						<option value="optical-drive">optical drive</option>
+						<option value="os">Operating System</option>
+						<option value="power-supply">power supply</option>
+						<option value="sound-card">Sound Card</option>
+						<option value="speakers">speakers</option>
+						<option value="thermal-paste">thermal paste</option>
+						<option value="ups">ups</option>
+						<option value="webcam">webcams</option>
+						<option value="wired-network-card">wired network cards</option>
+						<option value="wireless-network-card">wireless network cards</option>
+					</select>
+
+				</div>
+			</section>
+		</article>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<ul class="icons">
+				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+				<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Untitled</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/generic.js"></script>
+	<script>
+		async function query(){
+			var part = document.getElementById('part=type').value;
+			const response = await fetch(`/data?type=${part}`)
+			const data = await response.json();
+
+			console.log(data);
+		}
+		query();
+	</script>
+
+</body>
+
+</html>
