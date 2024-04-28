@@ -79,6 +79,8 @@
 						<option value="wired-network-card">wired network cards</option>
 						<option value="wireless-network-card">wireless network cards</option>
 					</select>
+					<button id="submitBtn">Search</button>
+					<div id="result"></div>
 
 				</div>
 			</section>
@@ -109,17 +111,7 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script src="assets/js/generic.js"></script>
-	<script>
-		async function query(){
-			var part = document.getElementById('part=type').value;
-			const response = await fetch(`/data?type=${part}`)
-			const data = await response.json();
-
-			console.log(data);
-		}
-		query();
-	</script>
+	<script src="assets/js/dbquery.js"></script>
 
 </body>
 
