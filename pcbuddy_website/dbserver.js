@@ -1,8 +1,9 @@
+// Necessary packages to create a server client connection
 const express = require('express');
 const { Client } = require('pg')
 const cors = require('cors');
 
-
+// open port
 const port = 3000;
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(cors());
 //     port: '5432'
 // });
 
+// connected to the database
 const client = new Client({
     user: 'buddy',
     password: 'brocode',
@@ -27,6 +29,7 @@ const client = new Client({
 
 client.connect();
 
+// retrieving information from the database based on a certain part
 app.get('/', async (req, res)=> {
     // console.log("query");
     //res.send("dfsdfs");
