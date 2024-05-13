@@ -1,6 +1,7 @@
 # AI_PC_Building_Buddy
 
 ## How to run the website
+2 Methods to access the website
 
 1) You can access the website by simply visiting pcbuildingbuddy.com
 
