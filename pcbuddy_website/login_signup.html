@@ -122,6 +122,12 @@
             </div>
             <!-- submit button hamzah added the disable for the button-->
             <input type="submit" id="signUp" name="signup_submit" class="btn btn-disabled" value="Sign up" disabled />
+
+            <script>
+              document.getElementById('signUp').addEventListener('click', function() {
+                window.location.href='index.html';
+              });
+            </script>
            
             <p class="social-text">Or Sign up with social platforms</p>
             <div class="social-media">
