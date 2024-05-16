@@ -285,7 +285,18 @@
 							  style="--value:0"
 							  type="range"
 							  value="0">
+							  <button type="button" id="saveButton" style="background-color: #21b2a6">Save Build</button>
+							  <script>
+								document.getElementById('saveButton').addEventListener('click', function(event) {
+									event.preventDefault();
+									alert('Build Saved Successfully! :D');
+
+									window.location.reload();
+								});
+							  </script>
+							  
 						  </label> 
+
 					</div>
 					<div class="accessories">
 						<h2>Recommended Accessories</h2>
