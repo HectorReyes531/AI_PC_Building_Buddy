@@ -75,7 +75,14 @@
 
             <!-- login button -->
             <!-- <input type="button" value="Login" class="btn solid" /> -->
-            <button type="submit" class="btn solid">Login</button>
+
+            <!-- Original Code -->
+            <button type="button" class="btn solid" id="loginButton">Login</button>
+            <script>
+              document.getElementById('loginButton').addEventListener('click', function() {
+                window.location.href='user_profile.html';
+              });
+            </script>
 
             <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
