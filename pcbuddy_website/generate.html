@@ -61,6 +61,149 @@
             }
 
         }
+		.accessories {
+			margin-top: 2em;
+			padding: 1em;
+			background-color: #f5f5f5;
+			border: 1px solid #ccc;
+		}
+
+		.accessories h2 {
+			font-size: 1.5em;
+			margin-bottom: 1em;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			color: #333;
+		}
+
+		.accessory {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		.accessory div {
+			flex: 1 1 calc(25% - 1em);
+			box-sizing: border-box;
+			padding: 1em;
+			margin: 0.5em;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			text-align: center;
+		}
+
+		.accessory div img {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 0.5em;
+			width: 150px; /* Set a fixed width */
+			height: 150px; /* Set a fixed height */
+			object-fit: cover; /* Ensure the image covers the defined area */
+		}
+
+		.accessory div p {
+			margin: 0.5em 0;
+			font-size: 1em;
+			color: #333;
+		}
+
+		.accessory div .price {
+			font-weight: bold;
+			color: #21b2a6;
+		}
+
+		.accessory div .buy-btn {
+			display: inline-block;
+			margin-top: 0.5em;
+			padding: 0.5em 1em;
+			background-color: #21b2a6;
+			color: #fff;
+			text-decoration: none;
+			border-radius: 0.25em;
+		}
+
+		.accessory div .buy-btn:hover {
+			background-color: #1e9b8c;
+		}
+		.rating {
+			--dir: right; /* Direction of the gradient fill*/
+			--fill: gold; /* color for the stars*/
+			--fillbg: rgba(100, 100, 100, 0.15); /*colors of the background*/
+			--star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.25l-6.188 3.75 1.641-7.031-5.438-4.734 7.172-0.609 2.813-6.609 2.813 6.609 7.172 0.609-5.438 4.734 1.641 7.031z"/></svg>');
+			--stars: 5; /*number of the stars*/
+			--starsize: 3rem; /* Size of each star */
+			--symbol: var(--star); /* Symbol used for the stars, referencing the SVG */
+			--value: 1; /* Current rating value */
+			--w: calc(var(--stars) * var(--starsize)); /* Total width of the rating component */
+			--x: calc(100% * (var(--value) / var(--stars)));
+			block-size: var(--starsize); /* Height of the rating component */
+			inline-size: var(--w); /* Width of the rating component */
+			position: relative;
+			touch-action: manipulation;/* Optimizes touch interaction */
+		}
+		/* Adjusts the rating direction for right-to-left layouts */
+		[dir="rtl"] .rating {
+			--dir: left;
+		}
+		/* Styles for the track of the rating input for Mozilla Firefox */
+		.rating::-moz-range-track {
+			background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
+			block-size: 100%;
+			mask: repeat left center/var(--starsize) var(--symbol);
+		}
+		/* Styles for the track of the rating input for WebKit browsers */
+		.rating::-webkit-slider-runnable-track {
+			background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
+			block-size: 100%;
+			mask: repeat left center/var(--starsize) var(--symbol);
+			-webkit-mask: repeat left center/var(--starsize) var(--symbol);
+		}
+		/* Makes the slider thumb invisible for Firefox */
+		.rating::-moz-range-thumb {
+			height: var(--starsize);
+			opacity: 100;
+			width: var(--starsize);
+		}
+		/* Makes the slider thumb invisible for WebKit browsers */
+		.rating::-webkit-slider-thumb {
+			height: var(--starsize);
+			opacity: 0;
+			width: var(--starsize);
+			-webkit-appearance: none;
+		}
+		/* Base styling for the rating and its label */
+		.rating, .rating-label {
+			display: block;
+			font-family: ui-sans-serif, system-ui, sans-serif;
+		}
+		/* Style for the label associated with the rating component */
+		.rating-label {
+			margin-block-end: 1rem;
+		}
+		/* Fallback styles for when JavaScript is not available */
+		.rating--nojs::-moz-range-track {
+			background: var(--fillbg);
+		}
+		.rating--nojs::-moz-range-progress {
+			background: var(--fill);
+			block-size: 100%;
+			mask: repeat left center/var(--starsize) var(--star);
+		}
+		.rating--nojs::-webkit-slider-runnable-track {
+			background: var(--fillbg);
+		}
+		.rating--nojs::-webkit-slider-thumb {
+			background-color: var(--fill);
+			box-shadow: calc(0rem - var(--w)) 0 0 var(--w) var(--fill);
+			opacity: 1;
+			width: 1px;
+		}
+		/* Adjusts the thumb shadow for RTL in the no-JavaScript fallback */
+		[dir="rtl"] .rating--nojs::-webkit-slider-thumb {
+			box-shadow: var(--w) 0 0 var(--w) var(--fill);
+		}
+
+
     </style>
 </head>
 
@@ -103,6 +246,7 @@
 					<!--just need to change the action to ~/pyfile and add an action="get" i think-->
 
 					<!-- SEARCH FORM  -->
+					<p>Please mention if you have a game in mind or specify the budget you want for building the PC.</p>
 					<form id="searchform" onsubmit="submitForm(event)">
 						<div class="search">
 							<span class="search-icon material-symbols-outlined">search</span>
@@ -113,42 +257,9 @@
 
 				</div>
 
-					<!-- the search bars for the games and and input for the amount of budget they need -->
-					<form role="search" id="gameAndBudgetInputForm" style="display: flex; flex-direction: column; align-items: center;">
-						<div class="search mb-2" style="max-width: 600px; width: 100%;">
-							<span class="search-icon material-symbols-outlined">search</span>
-							<input id="gameInput" class="search-input form-control" type="search" placeholder="Type game names here..." aria-label="Search" style="padding-left: 2em; color: black;">
-						</div>
-						
-						<!-- Dropdown Button -->
-						<!-- Dropdown Button -->
-<div class="dropdown mb-2">
-    <button class="btn btn-light dropdown-toggle" type="button" id="partsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-      Have a part in mind?
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="partsDropdown">
-      <li><a href="CASE.html" class="dropdown-item">Case</a></li>
-      <li><a href="cooling.html" class="dropdown-item">Case Fan</a></li>
-	  <li><a href="CPU.html" class="dropdown-item">CPU</a></li>
-      <li><a href="cpucooler.html" class="dropdown-item">CPU Cooler</a></li>
-      <li><a href="graphicscard.html" class="dropdown-item">Graphics Card</a></li>
-      <li><a href="harddrive.html" class="dropdown-item">External Hard Drive</a></li>
-      <li><a href="harddrive.html" class="dropdown-item">Internal Hard Drive</a></li>
-      <li><a href="memory.html" class="dropdown-item">Memory</a></li>
-      <li><a href="monitor.html" class="dropdown-item">Monitor</a></li>
-      <li><a href="motherboard.html" class="dropdown-item">Motherboard</a></li>
-      <li><a href="OS.html" class="dropdown-item">Operating System (OS)</a></li>
-      <li><a href="powersupply.html" class="dropdown-item">Power Supply</a></li>
-      <li><a href="storage.html" class="dropdown-item">Storage Devices</a></li>
-    </ul>
-</div>
-
-						
-						<div class="search mb-2" style="max-width: 300px; width: 100%;">
-							<span class="search-icon material-symbols-outlined">attach_money</span>
-							<input id="searchform" class="search-input form-control" type="number" placeholder="Enter your budget..." aria-label="Budget" style="padding-left: 2em; color: black;">
-						</div>
-						<button id="submitGamesAndBudget" class="btn search-button" type="submit" style="max-width: 250px; width: 100%; background-color: #f5f5f5; border: 1px solid #ccc; color: black; padding: 0.5em 1em;">Generate PC Build</button>
+					 <!-- Part input form -->
+					 <form role="search" id="partInputForm" style="display: flex; flex-direction: column; align-items: center;">
+						<button id="partsButton" class="btn btn-light" type="button" style="max-width: 250px; width: 100%; background-color: #f5f5f5; border: 1px solid #ccc; color: black; padding: 0.5em 1em;" onclick="location.href='dbrep.html';">PC Parts</button>
 					</form>
 
 					<div class="container">
@@ -165,7 +276,47 @@
 							</table>
 		
 						</div>
+						<label class="rating-label"><strong><code></code></strong>
+							<input
+							  class="rating"
+							  max="5"
+							  oninput="this.style.setProperty('--value', `${this.valueAsNumber}`)"
+							  step="0.5"
+							  style="--value:0"
+							  type="range"
+							  value="0">
+						  </label> 
 					</div>
+					<div class="accessories">
+						<h2>Recommended Accessories</h2>
+						<div class="accessory">
+						  <div>
+							<img src="images/mousepad.jpg" alt="Mousepad">
+							<p>Logitech G440 Hard Gaming Mouse Pad for Gaming</p>
+							<p class="price">Price: $29.99</p>
+							<a href="https://www.amazon.com/Logitech-G440-Hard-Gaming-Mouse/dp/B01DKTP3PY/ref=sr_1_9?crid=2UANSIPH3W8P1&dib=eyJ2IjoiMSJ9.Fr_t1-izDD0lekJ3gjh_TbYy_FBF_Go-QMM3jmhFoaPbONS-VMrNludzcZV_xXr3H7kjM_oULrK1_ot4Xa2MgN5jCx92G_ireR66L2rhlhUqCIpoSMxWxBP9gAg74luuqRoSldrGH7UxzWsPazTMVg_ZFj0PkRU_Pz_H5YvIDXz2xQdYL8iEoJDDdnHnoggHDB6AQuAwG0XLoTaukVMza2xmsBpsQuAlErPEr2aT_2qIURLqYLmYEXm_t8BsSL7xl6Hlfh1YFOCdNCwrY6mpI3Nrwc-9TJrimsJFhra3X7Y.wqoQiLKkKF4DGVvTfF6_tgfBl4Kt7AGlvm6e4NX5uTw&dib_tag=se&keywords=mouse%2Bpad%2Blogitech&qid=1710046358&sprefix=mouse%2Bpad%2Blog%2Caps%2C142&sr=8-9&th=1" class="buy-btn">Buy Now</a>
+						  </div>
+						  <div>
+							<img src="images/headsetstand.jpg" alt="Headsetstand">
+							<p>Headset Stand</p>
+							<p class="price">Price: $8.99</p>
+							<a href="https://www.amazon.com/Headphone-New-Earphone-Supporting-Headphones/dp/B01GJQ7N94" class="buy-btn">Buy Now</a>
+						  </div>
+						  <div>
+							<img src="images/hdmi.jpg" alt="HDMI">
+							<p>HDMI Cable</p>
+							<p class="price">Price: $9.32</p>
+							<a href="https://www.amazon.com/AmazonBasics-High-Speed-HDMI-Cable-1-Pack/dp/B014I8SSD0?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ATVPDKIKX0DER" class="buy-btn">Buy Now</a>
+						  </div>
+						  <div>
+							<img src="images/usbext.jpg" alt="USB">
+							<p>USB Extension Cable</p>
+							<p class="price">Price: $7.99</p>
+							<a href="https://www.amazon.com/Extension-ITANDA-Transfer-Keyboard-Playstation/dp/B08FJ8Z4TJ?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1QDY8QOTGCZS0" class="buy-btn">Buy Now</a>
+						  </div>
+						</div>
+					  </div>
+					  
 				</section>
 			</article>
 
